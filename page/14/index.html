@@ -291,6 +291,413 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/04/LeetCode%E5%88%B7%E9%A2%98/307.%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2%20-%20%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/04/LeetCode%E5%88%B7%E9%A2%98/307.%E5%8C%BA%E5%9F%9F%E5%92%8C%E6%A3%80%E7%B4%A2%20-%20%E6%95%B0%E7%BB%84%E5%8F%AF%E4%BF%AE%E6%94%B9/" class="post-title-link" itemprop="url">307.区域和检索 - 数组可修改</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-04 22:53:27 / 修改时间：23:08:18" itemprop="dateCreated datePublished" datetime="2022-04-04T22:53:27+08:00">2022-04-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="区域和检索---数组可修改">307.区域和检索 - 数组可修改</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个数组,可以改变nums[i],可以求[left,right]的区间和</p>
+<h2 id="解题思路">解题思路</h2>
+<p>这个题一看十分简单,感觉有坑,一写果然超时了,看了眼题解,原来有种东西叫线段树</p>
+<p>后来思考了一下这种数据结构和数组到底有什么差别,线段树应该是一种创建数组后不再增加元素,并且查询区间和的操作的频率比较大</p>
+<p>用一个数组来模拟线段树:</p>
+<p>线段树存储的信息是[s,e]范围的区间和</p>
+<p>设根节点下标为0</p>
+<p>如果一个结点在数组的下标为node，那么它的左子结点下标为node×2+1，右子结点下标为node×2+2</p>
+<hr>
+<p>这样的话构建线段树的代码为:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">build</span><span class="params">(<span class="type">int</span> node, <span class="type">int</span> s, <span class="type">int</span> e, <span class="type">int</span>[] nums)</span> {</span><br><span class="line">    <span class="keyword">if</span> (s == e) {</span><br><span class="line">        segmentTree[node] = nums[s];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> s + (e - s) / <span class="number">2</span>;</span><br><span class="line">    build(node * <span class="number">2</span> + <span class="number">1</span>, s, m, nums);</span><br><span class="line">    build(node * <span class="number">2</span> + <span class="number">2</span>, m + <span class="number">1</span>, e, nums);</span><br><span class="line">    segmentTree[node] = segmentTree[node * <span class="number">2</span> + <span class="number">1</span>] + segmentTree[node * <span class="number">2</span> + <span class="number">2</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>node是当前节点的下标,[s,e]是当前节点所保存的区间和的区间,当s==e时,说明该节点保存的内容仅仅是一个数</p>
+<p>左子树的和的区间为[s,(s+e)/2],右子树的和的区间为[(s+e)/2+1,e]</p>
+<p>先递归的构建左子树,右子树,当左子树和右子树都构建完成后才能对这个节点求和.</p>
+<hr>
+<p>更改元素值的操作为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(<span class="type">int</span> index, <span class="type">int</span> val, <span class="type">int</span> node, <span class="type">int</span> s, <span class="type">int</span> e)</span> {</span><br><span class="line">    <span class="keyword">if</span> (s == e) {</span><br><span class="line">        segmentTree[node] = val;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> s + (e - s) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (index &lt;= m) {</span><br><span class="line">        change(index, val, node * <span class="number">2</span> + <span class="number">1</span>, s, m);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        change(index, val, node * <span class="number">2</span> + <span class="number">2</span>, m + <span class="number">1</span>, e);</span><br><span class="line">    }</span><br><span class="line">    segmentTree[node] = segmentTree[node * <span class="number">2</span> + <span class="number">1</span>] + segmentTree[node * <span class="number">2</span> + <span class="number">2</span>];</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>不断的对[s,e]进行二分,找到保存该节点的node,然后直接进行修改即可</p>
+<p><strong>原数组下标为index的元素并不是segmentTree[index]!!</strong></p>
+<hr>
+<p>求和的话就是判断[s,e]是在左区间还是右区间,如果是横跨了左右区间就通过(s+e)/2来分割开,然后求和</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/02/JavaWeb/MyBatis%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/02/JavaWeb/MyBatis%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">MyBatis使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-02 23:47:27" itemprop="dateCreated datePublished" datetime="2022-04-02T23:47:27+08:00">2022-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-13 22:56:52" itemprop="dateModified" datetime="2022-06-13T22:56:52+08:00">2022-06-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="mybatis">MyBatis</h1>
+<p>在pojo中的实体的属性名和数据库中的列名不相同时会导致无法正确读取数据</p>
+<p>解决办法:</p>
+<pre><code>1. 在写sql的时候对列名取别名使其和属性名相同
+
+    缺点:繁琐
+
+2. 写sql片段
+
+    <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">sql</span> <span class="attr">id</span>=<span class="string">"brand_colum"</span>&gt;</span></span><br><span class="line">id,brand_name as brandName,company_name as companyName,ordered,description,status</span><br><span class="line"><span class="tag">&lt;/<span class="name">sql</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectAll"</span> <span class="attr">resultType</span>=<span class="string">"com.heima.pojo.Brand"</span>&gt;</span></span><br><span class="line">    select <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"brand_colum"</span>/&gt;</span> from tb_brand;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    缺点:不灵活
+
+3. resultMap
+
+    <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"brandResultMap"</span> <span class="attr">type</span>=<span class="string">"com.heima.pojo.Brand"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"brand_name"</span> <span class="attr">property</span>=<span class="string">"brandName"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"company_name"</span> <span class="attr">property</span>=<span class="string">"companyName"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectAll"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">    select * from tb_brand;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    使用resultMap属性替换resultType属性，完成映射</code></pre>
+<h2 id="xml中传递参数">.xml中传递参数</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">        select * from tb_brand where id=#{id};</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>#{}:会替换为?，：为了防止sql注入 ${}:拼接sql，会存在sql注入问题</p>
+<p>${}在表名或列名不固定的情况下使用</p>
+<p>parameterType可以省略</p>
+<h2 id="特殊字符的处理">特殊字符的处理</h2>
+<p>需要符合xml的语法规则</p>
+<ol type="1">
+<li><p>进行转义</p></li>
+<li><p>CDATA区</p></li>
+</ol>
+<h2 id="java中接口传递多参数">.java中接口传递多参数</h2>
+<p>参数处理需要额外处理，如前后加<code>%</code></p>
+<ol type="1">
+<li><p>散装参数</p>
+<p>使用注解@Param("")</p></li>
+<li><p>对象参数</p>
+<p>参数名和实体类的属性名应该对应</p></li>
+<li><p>Map参数</p>
+<p>参数名应该和map集合的键对应</p></li>
+</ol>
+<p>以上MyBatis会自动匹配参数</p>
+<h2 id="动态条件查询">动态条件查询</h2>
+<p>MyBatis提供了一些标签</p>
+<p>SQL语句随着用户输入或外部条件变化而变化，称为动态SQL</p>
+<h3 id="多条件动态-多个条件有的有有的没有">多条件动态-多个条件有的有有的没有</h3>
+<p>用where if标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectByCondition"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">    select * from tb_brand</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"status!=null"</span>&gt;</span></span><br><span class="line">            and status=#{status}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"companyName!=null and companyName!='' "</span>&gt;</span></span><br><span class="line">            and company_name like #{companyName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"brandName!=null and brandName!='' "</span>&gt;</span></span><br><span class="line">            and brand_name like #{brandName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="单条件动态查询-多个条件只有一个">单条件动态查询-多个条件只有一个</h3>
+<p>用choose when标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectByConditionSingle"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">    select * from tb_brand</span><br><span class="line">    where</span><br><span class="line">    <span class="tag">&lt;<span class="name">choose</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"status!=null"</span>&gt;</span></span><br><span class="line">            status=#{status}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"companyName!=null and companyName!='' "</span>&gt;</span></span><br><span class="line">            company_name like #{companyName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"brandName!=null and brandName!='' "</span>&gt;</span></span><br><span class="line">            brand_name like #{brandName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span></span><br><span class="line">            1=0</span><br><span class="line">        <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="mybatis的事务">MyBatis的事务</h2>
+<p>设置事务自动提交</p>
+<p><code>SqlSession sqlSession = sqlSessionFactory.openSession(true);</code></p>
+<p>手动提交:<code>sqlSession.commit();</code></p>
+<h2 id="插入时主键返回">插入时主键返回</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"add"</span> <span class="attr">useGeneratedKeys</span>=<span class="string">"true"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">    insert into tb_brand(brand_name, company_name, ordered, description, status)</span><br><span class="line">        values (#{brandName},#{companyName},#{ordered},#{description},#{status});</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="动态修改-多个条件有的修改有的不修改">动态修改-多个条件有的修改有的不修改</h2>
+<p>用set if标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"update"</span>&gt;</span></span><br><span class="line">    update tb_brand</span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"brandName!=null and brandName!=''"</span>&gt;</span></span><br><span class="line">            brand_name=#{brandName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"companyName!=null and companyName!='' "</span>&gt;</span></span><br><span class="line">            company_name=#{companyName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"ordered!=null"</span>&gt;</span></span><br><span class="line">            ordered=#{ordered}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"description!=null and description!='' "</span>&gt;</span></span><br><span class="line">            description=#{description}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"status!=null"</span>&gt;</span></span><br><span class="line">            status=#{status}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    where id=#{id}</span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="删除">删除</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">    delete from tb_brand where id=#{id};</span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="批量删除">批量删除</h2>
+<p>MyBatis会将数组参数封装成一个Map集合，默认array，或者使用<code>@Param</code>注解改变map集合的默认key的名称</p>
+<p><code>void deleteByIds(@Param("ids")int[] ids);</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteByIds"</span>&gt;</span></span><br><span class="line">    delete from tb_brand</span><br><span class="line">    where id in</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span></span><br><span class="line">        #{id}</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="参数传递">参数传递</h2>
+<p>MyBatis接口方法可以接受各种各样的参数</p>
+<p>单个参数： POJO类型:直接使用,属性名与#{}占位符名称一致就可以使用</p>
+<pre><code>Map集合:直接使用键名与#{}名一致
+Collection
+List
+Array
+其他类型:</code></pre>
+<p>多个参数: 用<code>@Param</code>注解</p>
+<p>多个参数封装成Map，值就是参数的值，键arg0...,param1...这种类型</p>
+<p>MyBatis提供了ParamNameResolver类来进行参数封装</p>
+<p>arg0,param1这种可读性差，所以使用@Param进行注解，替换arg0...这些在Map中的键</p>
+<h2 id="使用注解实现curd">使用注解实现CURD</h2>
+<p><span class="citation" data-cites="Select">@Select</span> <span class="citation" data-cites="Insert">@Insert</span> <span class="citation" data-cites="Update">@Update</span> <span class="citation" data-cites="Delete">@Delete</span></p>
+<p>注解完成简单功能，复杂功能通过.xml配置文件完成</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/02/LeetCode%E5%88%B7%E9%A2%98/146.LRU%20%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/02/LeetCode%E5%88%B7%E9%A2%98/146.LRU%20%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">146.LRU 缓存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-02 13:53:27 / 修改时间：13:58:52" itemprop="dateCreated datePublished" datetime="2022-04-02T13:53:27+08:00">2022-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="lru-缓存">146.LRU 缓存</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>模拟一个cache的LRU(最近最少使用)的调度策略</p>
+<p>其中cache的容量是capacity</p>
+<h2 id="解题思路">解题思路</h2>
+<p>其实体系结构操作系统课都学过LRU的原理，怎么用编程来实现呢？</p>
+<p>体系结构课给出的描述是：首先应该有一个栈，这个栈可以将一个元素给调到栈顶，然后还可以将超出容量的元素从另一端挤出去(应该是这样)</p>
+<p>实现方式：</p>
+<p>双向链表+Map</p>
+<p>双向链表的结点保存了一个value，然后在Map中可以根据key找到这个双向链表中的结点</p>
+<p>这样的话就是在头部插入元素，在尾部删除元素，将某一元素调整到头部三个操作</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/207.%E8%AF%BE%E7%A8%8B%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/207.%E8%AF%BE%E7%A8%8B%E8%A1%A8/" class="post-title-link" itemprop="url">207.课程表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-01 13:45:27" itemprop="dateCreated datePublished" datetime="2022-04-01T13:45:27+08:00">2022-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-02 13:52:24" itemprop="dateModified" datetime="2022-04-02T13:52:24+08:00">2022-04-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="课程表">207.课程表</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>就是一共有numCourses门课，然后有一些先修课程的要求，判断能够完成所有的课程学习</p>
+<h2 id="解题思路">解题思路</h2>
+<p>其实一共有numCourses个结点，然后先修课程的关系构成一张图</p>
+<p>先修课程对[0,1]表示：想要学习课程0，你需要先完成课程1，也就是有一个结点1指向0的边</p>
+<p>判断这个图中是否存在圈</p>
+<p>每个节点有三个状态</p>
+<ol type="1">
+<li><p>未搜索：还没有搜索到这个节点</p></li>
+<li><p>搜索中：我们搜索过这个节点，但还没有回溯到该节点，即该节点还没有入栈，还有相邻的节点没有搜索完成）；</p></li>
+<li><p>已完成：我们搜索过并且回溯过这个节点，即该节点已经入栈，并且所有该节点的相邻节点都出现在栈的更底部的位置，满足拓扑排序的要求。</p></li>
+</ol>
+<p>当深度优先搜索搜索到搜索中状态的结点的时候说明该图存在环，就有了循环依赖</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/221.%E6%9C%80%E5%A4%A7%E6%AD%A3%E6%96%B9%E5%BD%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -753,333 +1160,6 @@ nums 只有 一个重复的整数，返回这个重复的数。</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/30/LeetCode%E5%88%B7%E9%A2%98/1606.%E6%89%BE%E5%88%B0%E5%A4%84%E7%90%86%E6%9C%80%E5%A4%9A%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/30/LeetCode%E5%88%B7%E9%A2%98/1606.%E6%89%BE%E5%88%B0%E5%A4%84%E7%90%86%E6%9C%80%E5%A4%9A%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">1606.找到处理最多请求的服务器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-30 11:35:27 / 修改时间：11:41:18" itemprop="dateCreated datePublished" datetime="2022-03-30T11:35:27+08:00">2022-03-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="找到处理最多请求的服务器">1606.找到处理最多请求的服务器</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>k个服务器，一个服务器同一时间只能处理一个请求</p>
-<p>一个arrive[]请求到达时间数组，一个load[]请求工作时间数组</p>
-<p>第i个请求优先分配给第i%k个服务器，如果该服务器繁忙则继续查找下一个服务器，这些服务器视作一个环</p>
-<p>返回最繁忙的服务器列表</p>
-<h2 id="解题思路">解题思路</h2>
-<p>用一个数组记录每个服务器的执行任务的数量</p>
-<p>用一个TreeSet来记录可用的服务器isAvailable</p>
-<p>用一个优先队列isBusy记录任务完成时间以及这个服务器序号，按完成时间升序排序</p>
-<p>开始模拟任务达到的过程</p>
-<pre><code>1. 记录到达时间
-2. 如果有已经执行完任务的服务器将他从isBusy中弹出并且加入到isAvailable中去
-3. 如果isAvailable为空这个任务执行不了
-4. 否则按规则找到可以执行的服务器
-5. 更新isAvailable和isBusy</code></pre>
-<p>最后遍历每个服务器执行任务的数量并得出答案</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/30/LeetCode%E5%88%B7%E9%A2%98/236.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/30/LeetCode%E5%88%B7%E9%A2%98/236.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" class="post-title-link" itemprop="url">236.二叉树的最近公共祖先</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-30 11:25:27 / 修改时间：11:30:20" itemprop="dateCreated datePublished" datetime="2022-03-30T11:25:27+08:00">2022-03-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="二叉树的最近公共祖先">236.二叉树的最近公共祖先</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先</p>
-<p>一个节点也可以是它自己的祖先</p>
-<h2 id="解题思路">解题思路</h2>
-<p>这个题大二小学期好像碰到过类似的，当时感觉老难了，现在竟然一下写出来了</p>
-<p>用一个Map记录每个节点的父节点，一遍DFS完成Map的构建</p>
-<p>然后记录一个结点的父节点的路径，用Set记录即可</p>
-<p>然后查找另一个结点的父节点路径，并判断是否出现在Set中，第一次出现在Set中的就是最近公共祖先</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/139.%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/139.%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/" class="post-title-link" itemprop="url">139.单词拆分</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-29 11:16:27" itemprop="dateCreated datePublished" datetime="2022-03-29T11:16:27+08:00">2022-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-30 11:24:44" itemprop="dateModified" datetime="2022-03-30T11:24:44+08:00">2022-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="单词拆分">139.单词拆分</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给你一个字符串s和一个字符串列表wordDict作为字典</p>
-<p>判断是否可以利用字典中出现的单词拼接出s</p>
-<p>不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用</p>
-<h2 id="解题思路">解题思路</h2>
-<p>我想到的是DFS，碰到了个什么s是"aaaaaaaaa···",wordDict是["a","aa",···]的用例超时了，觉得确实有问题，发现自己好容易吧dp题想成DFS(自闭.jpg</p>
-<hr>
-<p>dp[i]表示字符串s前i个字符是否能被空格拆分成若干个字典中出现的单词</p>
-<p>为了方便查找字典，先将字典的单词保存到了一个Set中去</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= s.length(); i++) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; i; j++) {</span><br><span class="line">        <span class="comment">//substring(i,j),[i,j)包左不包右</span></span><br><span class="line">        <span class="keyword">if</span> (dp[j] &amp;&amp; wordDictSet.contains(s.substring(j, i))) {</span><br><span class="line">            dp[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>如果dp[j]也就是前j个字符可以被拆分，并且词典中包括s[j,i)的字符串，那么前i个字符也可以被拆分</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/" class="post-title-link" itemprop="url">279.完全平方数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-29 11:07:27" itemprop="dateCreated datePublished" datetime="2022-03-29T11:07:27+08:00">2022-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-30 11:14:56" itemprop="dateModified" datetime="2022-03-30T11:14:56+08:00">2022-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="完全平方数">279.完全平方数</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给一个整数n，返回和为n的完全平方数的最少数量</p>
-<p>eg:12=4+4+4 ans=3</p>
-<h2 id="解题思路">解题思路</h2>
-<p>dp[i]表示整数i所需要的最少完全平方数的数量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; sqrt[j] &lt;= i; j++) {</span><br><span class="line">    <span class="comment">//我也想到了dp[i-j*j]</span></span><br><span class="line">    min = Math.min(min, dp[i - sqrt[j]]);</span><br><span class="line">}</span><br><span class="line">dp[i] = min + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p>j从1开始一直到j<em>j&lt;=i,这样的话第一次min就会更新成dp[i-1]，如果j</em>j=i就会更新为dp[0]</p>
-<p>然后最后进行+1操作即可，因为总归会一个完全平方数哪怕是1，当然也有可能是更大的</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1148,7 +1228,7 @@ nums 只有 一个重复的整数，返回这个重复的数。</p>
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">196</span>
+          <span class="site-state-item-count">200</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
