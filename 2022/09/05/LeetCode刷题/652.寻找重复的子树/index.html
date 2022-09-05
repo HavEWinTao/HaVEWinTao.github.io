@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="652. 寻找重复的子树](https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;find-duplicate-subtrees&#x2F;) 题目描述 给定一棵二叉树root，返回所有重复的子树 对于同一类的重复子树，只需要返回其中任意一棵的根结点即可 如果两棵树具有相同的结构和相同的结点值，则它们是重复的 解题思路 将树序列化为val(left)(right)的形式 将序列化后的树保">
+  <meta name="description" content="652. 寻找重复的子树 题目描述 给定一棵二叉树root，返回所有重复的子树 对于同一类的重复子树，只需要返回其中任意一棵的根结点即可 如果两棵树具有相同的结构和相同的结点值，则它们是重复的 解题思路 将树序列化为val(left)(right)的形式 将序列化后的树保存到Map中，同时记录TreeNode DFS，从底向上可以判断是否存在相同的子树，如果存在就记录这个子树的根节">
 <meta property="og:type" content="article">
 <meta property="og:title" content="652.寻找重复的子树">
 <meta property="og:url" content="http://example.com/2022/09/05/LeetCode%E5%88%B7%E9%A2%98/652.%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E6%A0%91/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="652. 寻找重复的子树](https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;find-duplicate-subtrees&#x2F;) 题目描述 给定一棵二叉树root，返回所有重复的子树 对于同一类的重复子树，只需要返回其中任意一棵的根结点即可 如果两棵树具有相同的结构和相同的结点值，则它们是重复的 解题思路 将树序列化为val(left)(right)的形式 将序列化后的树保">
+<meta property="og:description" content="652. 寻找重复的子树 题目描述 给定一棵二叉树root，返回所有重复的子树 对于同一类的重复子树，只需要返回其中任意一棵的根结点即可 如果两棵树具有相同的结构和相同的结点值，则它们是重复的 解题思路 将树序列化为val(left)(right)的形式 将序列化后的树保存到Map中，同时记录TreeNode DFS，从底向上可以判断是否存在相同的子树，如果存在就记录这个子树的根节">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-05T03:46:27.000Z">
-<meta property="article:modified_time" content="2022-09-05T03:49:51.416Z">
+<meta property="article:modified_time" content="2022-09-05T04:01:26.621Z">
 <meta property="article:author" content="樊tastic">
 <meta name="twitter:card" content="summary">
 
@@ -320,7 +320,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-09-05 11:46:27 / 修改时间：11:49:51" itemprop="dateCreated datePublished" datetime="2022-09-05T11:46:27+08:00">2022-09-05</time>
+              <time title="创建时间：2022-09-05 11:46:27 / 修改时间：12:01:26" itemprop="dateCreated datePublished" datetime="2022-09-05T11:46:27+08:00">2022-09-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -343,8 +343,7 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="寻找重复的子树httpsleetcode.cnproblemsfind-duplicate-subtrees">652.
-寻找重复的子树](https://leetcode.cn/problems/find-duplicate-subtrees/)</h1>
+        <h1 id="寻找重复的子树">652. <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-duplicate-subtrees/">寻找重复的子树</a></h1>
 <h2 id="题目描述">题目描述</h2>
 <p>给定一棵二叉树root，返回所有重复的子树</p>
 <p>对于同一类的重复子树，只需要返回其中任意一棵的根结点即可</p>
@@ -370,8 +369,8 @@ mjx-container[display="true"] + br {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/05/LeetCode%E5%88%B7%E9%A2%98/687.%E6%9C%80%E9%95%BF%E5%90%8C%E5%80%BC%E8%B7%AF%E5%BE%84/" rel="prev" title="676.实现一个魔法字典">
-      <i class="fa fa-chevron-left"></i> 676.实现一个魔法字典
+    <a href="/2022/09/05/LeetCode%E5%88%B7%E9%A2%98/687.%E6%9C%80%E9%95%BF%E5%90%8C%E5%80%BC%E8%B7%AF%E5%BE%84/" rel="prev" title="687.最长同值路径">
+      <i class="fa fa-chevron-left"></i> 687.最长同值路径
     </a></div>
       <div class="post-nav-item">
     <a href="/2022/09/05/LeetCode%E5%88%B7%E9%A2%98/1582.%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E4%BD%8D%E7%BD%AE/" rel="next" title="1582.二进制矩阵中的特殊位置">
@@ -435,8 +434,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E6%A0%91httpsleetcode.cnproblemsfind-duplicate-subtrees"><span class="nav-number">1.</span> <span class="nav-text">652.
-寻找重复的子树](https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;find-duplicate-subtrees&#x2F;)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">652. 寻找重复的子树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
