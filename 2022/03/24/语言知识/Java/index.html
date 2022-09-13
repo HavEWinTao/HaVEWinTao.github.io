@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="正则表达式 $表示匹配后缀 ^表示匹配前缀">
+  <meta name="description" content="Java的一些语法基础 将List&lt;Integer&gt;转换为int[] ans.stream().mapToInt(Integer::valueOf).toArray()  ans是List&lt;Integer&gt;类型 123456789101112131415161718192021222324252627282930313233343536373839404142in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="樊tastic~">
-<meta property="og:url" content="http://example.com/2022/09/11/%E5%85%B6%E4%BB%96/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+<meta property="og:title" content="Java">
+<meta property="og:url" content="http://example.com/2022/03/24/%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/Java/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="正则表达式 $表示匹配后缀 ^表示匹配前缀">
+<meta property="og:description" content="Java的一些语法基础 将List&lt;Integer&gt;转换为int[] ans.stream().mapToInt(Integer::valueOf).toArray()  ans是List&lt;Integer&gt;类型 123456789101112131415161718192021222324252627282930313233343536373839404142in">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-11T06:08:15.422Z">
-<meta property="article:modified_time" content="2022-09-11T06:09:46.111Z">
+<meta property="article:published_time" content="2022-03-24T12:29:27.000Z">
+<meta property="article:modified_time" content="2022-09-12T13:38:46.978Z">
 <meta property="article:author" content="樊tastic">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/09/11/%E5%85%B6%E4%BB%96/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+<link rel="canonical" href="http://example.com/2022/03/24/%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/Java/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title> | 樊tastic~</title>
+  <title>Java | 樊tastic~</title>
   
 
 
@@ -76,7 +76,119 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="樊tastic~" type="application/atom+xml">
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="樊tastic~" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -184,7 +296,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/11/%E5%85%B6%E4%BB%96/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/24/%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/Java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,7 +309,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          Java
         </h1>
 
         <div class="post-meta">
@@ -206,9 +318,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-09-11 14:08:15 / 修改时间：14:09:46" itemprop="dateCreated datePublished" datetime="2022-09-11T14:08:15+08:00">2022-09-11</time>
+              <time title="创建时间：2022-03-24 20:29:27" itemprop="dateCreated datePublished" datetime="2022-03-24T20:29:27+08:00">2022-03-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-12 21:38:46" itemprop="dateModified" datetime="2022-09-12T21:38:46+08:00">2022-09-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">语法基础</span></a>
+                </span>
             </span>
 
           
@@ -222,9 +349,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="正则表达式">正则表达式</h1>
-<p>$表示匹配后缀</p>
-<p>^表示匹配前缀</p>
+        <h1 id="java的一些语法基础">Java的一些语法基础</h1>
+<p>将<code>List&lt;Integer&gt;</code>转换为<code>int[]</code></p>
+<pre><code>ans.stream().mapToInt(Integer::valueOf).toArray()
+
+ans是List&lt;Integer&gt;类型</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int数组变成Integer数组</span><br><span class="line"></span><br><span class="line">    Integer[] temp = Arrays.stream(coins).boxed().toArray(Integer[]::new);</span><br><span class="line">    （coins是int[]）</span><br><span class="line"></span><br><span class="line">字符串的substring(i,j)方法也是包括i不包括j的</span><br><span class="line"></span><br><span class="line">HashSet不能保证元素的排列顺序</span><br><span class="line"></span><br><span class="line">HashSet通过计算hash来判断是否存在，这样的话想存储一些自定义类型就得重写hashcode方法</span><br><span class="line"></span><br><span class="line">TreeSet可以按自定义规则自动排序</span><br><span class="line"></span><br><span class="line">    ceiling()方法用于返回等于或大于给定元素(ele)的最低元素(如果存在)，否则返回null。</span><br><span class="line"></span><br><span class="line">    类似的还有floor()</span><br><span class="line"></span><br><span class="line">虽然说正则表达式匹配[需要在[前加\转义，但是在java字符串中\本身就需要加\转义，所以在用字符串表示正则表达式时需要加两个\</span><br><span class="line"></span><br><span class="line">    String CDATA_CONTENT_PATTERN = "&lt;!\\[CDATA\\[.*?]]&gt;";</span><br><span class="line"></span><br><span class="line">String.replaceAll将所有匹配项全部替换</span><br><span class="line"></span><br><span class="line">String.replaceFirst替换第一个匹配到的</span><br><span class="line"></span><br><span class="line">试了一下replaceAll如果先匹配到的替换成了字符串能够使前面的成果匹配，也是可以再给replace的，不是一遍遍历(一遍遍历是错误的)</span><br><span class="line"></span><br><span class="line">```List&lt;String&gt;```变成```String[]```</span><br><span class="line"></span><br><span class="line">    List&lt;String&gt; log2 = new ArrayList&lt;&gt;();</span><br><span class="line">    log2.toArray(new String[0]);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">continue和break的标签</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">out:</span><br><span class="line">for (int i = 0; i &lt; 4; i++) {</span><br><span class="line">for (int j = 0; j &lt; i; j++) {</span><br><span class="line">    if (cur[j] == cur[i]) continue out;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>continue可以直接跳转到最外层for循环</p>
+<p>&lt;&lt;&lt;无符号左移</p>
+<p>&gt;&gt;&gt;无符号右移</p>
+<p>String的matches方法和contains方法</p>
+<p>matches方法是判断这个字符串能够和正则表达式reg匹配</p>
+<p>contains方法是判断是否包含某个字符串</p>
+<p>matches("(.<em>)" + word + "(.</em>)"))可以看成是否包含某个word</p>
+<p>字符集</p>
+<pre><code>Java的char占两个字符
+
+GBK中文占2字节
+
+UTF-8中文占3字节</code></pre>
+<p>java中是没有c++类型的pair的</p>
 
     </div>
 
@@ -240,12 +384,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/05/LeetCode%E5%88%B7%E9%A2%98/1582.%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E4%BD%8D%E7%BD%AE/" rel="prev" title="1582.二进制矩阵中的特殊位置">
-      <i class="fa fa-chevron-left"></i> 1582.二进制矩阵中的特殊位置
+    <a href="/2022/03/24/LeetCode%E5%88%B7%E9%A2%98/64.%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/" rel="prev" title="64.最小路径和">
+      <i class="fa fa-chevron-left"></i> 64.最小路径和
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/09/11/LeetCode%E5%88%B7%E9%A2%98/669.%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" rel="next" title="669.修剪二叉搜索树">
-      669.修剪二叉搜索树 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/03/24/LeetCode%E5%88%B7%E9%A2%98/661.%E5%9B%BE%E7%89%87%E5%B9%B3%E6%BB%91%E5%99%A8/" rel="next" title="661.图片平滑器">
+      661.图片平滑器 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -305,7 +449,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">正则表达式</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E7%9A%84%E4%B8%80%E4%BA%9B%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">Java的一些语法基础</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

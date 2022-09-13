@@ -291,6 +291,88 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/17/LeetCode%E5%88%B7%E9%A2%98/72.%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/17/LeetCode%E5%88%B7%E9%A2%98/72.%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/" class="post-title-link" itemprop="url">72.编辑距离</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-17 13:04:27 / 修改时间：13:11:54" itemprop="dateCreated datePublished" datetime="2022-04-17T13:04:27+08:00">2022-04-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="编辑距离">72.编辑距离</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>两个单词word1和word2，返回将word1转换成word2所使用的最少操作数</p>
+<p>对一个单词进行如下三种操作：</p>
+<pre><code>* 插入一个字符
+* 删除一个字符
+* 替换一个字符</code></pre>
+<h2 id="解题思路">解题思路</h2>
+<p>所有的操作相当于只有</p>
+<pre><code>1. 在word1中插入一个字符
+2. 在word2中插入一个字符
+3. 修改word1的一个字符</code></pre>
+<p>dp[i][j]表示word1的前i个字母和word2的前j个字母之间的编辑距离</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> dp[i - <span class="number">1</span>][j] + <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">down</span> <span class="operator">=</span> dp[i][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">leftDown</span> <span class="operator">=</span> dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line"><span class="keyword">if</span> (word1.charAt(i - <span class="number">1</span>) != word2.charAt(j - <span class="number">1</span>)) {</span><br><span class="line">    leftDown++;</span><br><span class="line">}</span><br><span class="line">dp[i][j] = Math.min(left, Math.min(down, leftDown));</span><br></pre></td></tr></table></figure>
+<p>如果两个单词当前的字母相同，就不用增加步数</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/17/LeetCode%E5%88%B7%E9%A2%98/42.%E6%8E%A5%E9%9B%A8%E6%B0%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1017,84 +1099,6 @@ mjx-container[display="true"] + br {
 <p>因为0不能做开头的数字，也就是0只是0，其余的数字后面可以再接数字</p>
 <p>对1-9进行搜索，每多一位时可用数字就少1，可以求出该层的数字</p>
 <p>在求每一层的同时对ans进行累加即可</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/10/LeetCode%E5%88%B7%E9%A2%98/152.%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/10/LeetCode%E5%88%B7%E9%A2%98/152.%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">152.乘积最大子数组</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-04-10 19:20:27 / 修改时间：19:27:10" itemprop="dateCreated datePublished" datetime="2022-04-10T19:20:27+08:00">2022-04-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="乘积最大子数组">152.乘积最大子数组</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>数组中乘积最大的非空连续子数组,此数组中最少包含一个数</p>
-<h2 id="解题思路">解题思路</h2>
-<p>这个题和最长连续子列和应该是类似的，不过一个是乘法一个是加法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProduct</span><span class="params">(<span class="type">int</span>[] nums)</span> {</span><br><span class="line">    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">    <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">1</span>, min = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> num : nums) {</span><br><span class="line">        <span class="keyword">if</span> (num &lt; <span class="number">0</span>) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> max;</span><br><span class="line">            max = min;</span><br><span class="line">            min = temp;</span><br><span class="line">        }</span><br><span class="line">        max = Math.max(max * num, num);</span><br><span class="line">        min = Math.min(min * num, num);</span><br><span class="line"></span><br><span class="line">        ans = Math.max(max, ans);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>根据加法的特性，如果一个数成负数了，那之前的就可以抛弃了，因为加上一个数这个负数也会起作用</p>
-<p>但是乘法不一样，负数乘负数会变为正数</p>
-<p>所以我们需要维护一个min，max和ans</p>
-<p>当当前数是负数时，将min和max互换，因为最小数乘一个负数之后会变为正数</p>
-<p>同时在循环中更新ans</p>
 
       
     </div>

@@ -291,6 +291,90 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/13/LeetCode%E5%88%B7%E9%A2%98/636.%E5%87%BD%E6%95%B0%E7%9A%84%E7%8B%AC%E5%8D%A0%E6%97%B6%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/08/13/LeetCode%E5%88%B7%E9%A2%98/636.%E5%87%BD%E6%95%B0%E7%9A%84%E7%8B%AC%E5%8D%A0%E6%97%B6%E9%97%B4/" class="post-title-link" itemprop="url">636.函数的独占时间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-08-13 10:21:27 / 修改时间：10:27:36" itemprop="dateCreated datePublished" datetime="2022-08-13T10:21:27+08:00">2022-08-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="函数的独占时间">636.函数的独占时间</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>有一个单线程CPU正在运行一个含有n道函数的程序。每道函数都有一个位于0和n-1之间的唯一标识符</p>
+<p>一个由日志组成的列表logs，其中logs[i]表示第i条日志消息，该消息是一个按"{function_id}:{"start"|"end"}:{timestamp}"进行格式化的字符串。例如，"0:start:3"意味着标识符为
+0的函数调用在时间戳3的起始开始执行</p>
+<p>函数可以调用多次，可能存在递归调用</p>
+<p>计算每个函数的独占执行时间</p>
+<p>以数组形式返回每个函数的 独占时间 ，其中第 i 个下标对应的值表示标识符
+i 的函数的独占时间</p>
+<h2 id="解题思路">解题思路</h2>
+<p>因为输入都是合法的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span>[] exclusiveTime(<span class="type">int</span> n, List&lt;String&gt; logs) {</span><br><span class="line">    <span class="type">int</span>[] ans = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">    Stack&lt;Integer[]&gt; stack = <span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (String log : logs) {</span><br><span class="line">        String[] items = log.split(<span class="string">":"</span>);</span><br><span class="line">        <span class="keyword">if</span> (items[<span class="number">1</span>].equals(<span class="string">"start"</span>)) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> Integer.parseInt(items[<span class="number">0</span>]);</span><br><span class="line">            <span class="type">int</span> <span class="variable">startTime</span> <span class="operator">=</span> Integer.parseInt(items[<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!stack.isEmpty()) {</span><br><span class="line">                Integer[] info = stack.peek();</span><br><span class="line">                ans[info[<span class="number">0</span>]] += (startTime - info[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            stack.add(<span class="keyword">new</span> <span class="title class_">Integer</span>[]{id, startTime});</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (items[<span class="number">1</span>].equals(<span class="string">"end"</span>)) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">endTime</span> <span class="operator">=</span> Integer.parseInt(items[<span class="number">2</span>]);</span><br><span class="line">            Integer[] info1 = stack.pop();</span><br><span class="line">            ans[info1[<span class="number">0</span>]] += endTime - info1[<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (!stack.isEmpty()) {</span><br><span class="line">                Integer[] info2 = stack.pop();</span><br><span class="line">                info2[<span class="number">1</span>] = endTime + <span class="number">1</span>;</span><br><span class="line">                stack.add(info2);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>栈中存放的是Integer[]，分别是任务id和开始执行时间</p>
+<p>当存在函数调用的时候：</p>
+<pre><code>遇到start应该记录该函数已经执行的时间
+
+遇到end应该修改上一个函数的开始时间</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/13/LeetCode%E5%88%B7%E9%A2%98/622.%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1007,83 +1091,6 @@ CBTInserter.get_root() 将返回树的头节点。</code></pre>
 <li><p>一共有n个元素，相当于建立一个图,对于每个sequence会对树贡献一部分，如[1,2,3]会有1-&gt;2和2-&gt;3的有向边，因为<strong>点1</strong>，所以图中一定不存在环</p></li>
 </ol>
 <p>如果最后图能唯一确定nums[0]-&gt;nums[1],nums[1]-&gt;nums[2],...,nums[n-2]-&gt;nums[n-1]的一条通路，那么就说明可以唯一确定一条超序列并且这个超序列就是nums</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/24/LeetCode%E5%88%B7%E9%A2%98/814.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/24/LeetCode%E5%88%B7%E9%A2%98/814.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/" class="post-title-link" itemprop="url">814.二叉树剪枝</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-24 16:31:27 / 修改时间：16:34:36" itemprop="dateCreated datePublished" datetime="2022-07-24T16:31:27+08:00">2022-07-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="二叉树剪枝">814.二叉树剪枝</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给你二叉树的根结点root ，此外树的每个结点的值要么是0，要么是1</p>
-<p>返回移除了所有不包含1的子树的原二叉树</p>
-<p>节点node的子树为node本身加上所有node的后代</p>
-<h2 id="解题思路">解题思路</h2>
-<p>剪枝肯东是从根节点开始剪的，如果说一个结点是叶子结点，并且他的值是0，那就应该将这个结点剪去（设置为null），这样这个结果会向上传递</p>
-<p>最终对整棵树完成剪枝</p>
-<p>递归</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> TreeNode <span class="title function_">pruneTree</span><span class="params">(TreeNode root)</span> {</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">null</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    }</span><br><span class="line">    root.left = pruneTree(root.left);</span><br><span class="line">    root.right = pruneTree(root.right);</span><br><span class="line">    <span class="keyword">if</span> (root.val == <span class="number">0</span> &amp;&amp; root.left == <span class="literal">null</span> &amp;&amp; root.right == <span class="literal">null</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
       
     </div>

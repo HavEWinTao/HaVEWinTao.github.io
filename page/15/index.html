@@ -291,6 +291,87 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/06/LeetCode%E5%88%B7%E9%A2%98/310.%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/06/LeetCode%E5%88%B7%E9%A2%98/310.%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/" class="post-title-link" itemprop="url">310.最小高度树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-06 22:44:27 / 修改时间：22:53:38" itemprop="dateCreated datePublished" datetime="2022-04-06T22:44:27+08:00">2022-04-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="最小高度树">310.最小高度树</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给一棵包含n个节点的树，标记为0到n-1。给定数字n和一个有n-1条无向边的edges列表（每一个边都是一对标签），其中<code>edges[i]=[ai,bi]</code>表示树中节点ai和bi之间存在一条无向边。</p>
+<p>可选择树中任何一个节点作为根。当选择节点x作为根节点时，设结果树的高度为h。在所有可能的树中，找到所有最小高度的树，并按任意顺序返回它们的根节点标签列表。</p>
+<p>树的高度是指根节点和叶子节点之间最长向下路径上边的数量。</p>
+<h2 id="解题思路">解题思路</h2>
+<p>最小高度就是找最长的路径，然后在中间截断开就是最小的高度，最大的高度应该是最长路径</p>
+<p>先根据edges将每个点的边都构建好</p>
+<p>然后求出每个点的入度，因为树的边是无向的，所以出度就是入度</p>
+<p>用一个队列将入度为1的结点(叶子结点)全部放入队列中</p>
+<p>然后BFS，将这个结点移除，同时更新该节点连接的结点的入度信息</p>
+<p>如果连接结点的入度变为1，那么他就成为了叶子结点，将其放入队列中</p>
+<p>其实BFS的过程就是不断的找叶子结点，然后剥离，然后就可以找到最长的路径</p>
+<p>最后一次循环中队列中的元素就是最长路径中中间的两个结点</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/05/LeetCode%E5%88%B7%E9%A2%98/762.%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E4%B8%AD%E8%B4%A8%E6%95%B0%E4%B8%AA%E8%AE%A1%E7%AE%97%E7%BD%AE%E4%BD%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1078,83 +1159,6 @@ nums 只有 一个重复的整数，返回这个重复的数。</p>
 <h2 id="解题思路">解题思路</h2>
 <p>当碰到陆地时进行DFS，把这块陆地置为0</p>
 <p>然后就可以得到陆地的数量了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/198.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/198.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" class="post-title-link" itemprop="url">198.打家劫舍</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-31 12:57:27 / 修改时间：13:01:14" itemprop="dateCreated datePublished" datetime="2022-03-31T12:57:27+08:00">2022-03-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="打家劫舍">198.打家劫舍</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你
-不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。
-如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<h2 id="解题思路">解题思路</h2>
-<p>dp[i][0]表示不拿第i个屋，dp[i][1]表示拿第i个屋</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">0</span>][<span class="number">1</span>] = nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i++) {</span><br><span class="line">    dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>], dp[i - <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line">    dp[i][<span class="number">1</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>] + nums[i];</span><br><span class="line">}</span><br><span class="line"><span class="keyword">return</span> Math.max(dp[nums.length - <span class="number">1</span>][<span class="number">0</span>], dp[nums.length - <span class="number">1</span>][<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
-<p>不偷i屋，那么dp[i][0]应该是偷或者不偷i-1屋的最大值</p>
-<p>偷i屋，那么dp[i][1]应该是不偷i-1屋的值+该屋的值</p>
 
       
     </div>

@@ -291,6 +291,84 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/10/LeetCode%E5%88%B7%E9%A2%98/152.%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/10/LeetCode%E5%88%B7%E9%A2%98/152.%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">152.乘积最大子数组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-10 19:20:27 / 修改时间：19:27:10" itemprop="dateCreated datePublished" datetime="2022-04-10T19:20:27+08:00">2022-04-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="乘积最大子数组">152.乘积最大子数组</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>数组中乘积最大的非空连续子数组,此数组中最少包含一个数</p>
+<h2 id="解题思路">解题思路</h2>
+<p>这个题和最长连续子列和应该是类似的，不过一个是乘法一个是加法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProduct</span><span class="params">(<span class="type">int</span>[] nums)</span> {</span><br><span class="line">    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> Integer.MIN_VALUE;</span><br><span class="line">    <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">1</span>, min = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> num : nums) {</span><br><span class="line">        <span class="keyword">if</span> (num &lt; <span class="number">0</span>) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> max;</span><br><span class="line">            max = min;</span><br><span class="line">            min = temp;</span><br><span class="line">        }</span><br><span class="line">        max = Math.max(max * num, num);</span><br><span class="line">        min = Math.min(min * num, num);</span><br><span class="line"></span><br><span class="line">        ans = Math.max(max, ans);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>根据加法的特性，如果一个数成负数了，那之前的就可以抛弃了，因为加上一个数这个负数也会起作用</p>
+<p>但是乘法不一样，负数乘负数会变为正数</p>
+<p>所以我们需要维护一个min，max和ans</p>
+<p>当当前数是负数时，将min和max互换，因为最小数乘一个负数之后会变为正数</p>
+<p>同时在循环中更新ans</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/10/LeetCode%E5%88%B7%E9%A2%98/CMB.%E5%85%AC%E5%9B%AD%E8%A7%84%E5%88%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -984,87 +1062,6 @@ s和goal。如果在若干次旋转操作之后，s能变成goal，那么返回t
           <h1 id="maven">Maven</h1>
 <p>Unable to load authentication plugin 'caching_sha2_password'</p>
 <p>在pom.xml中将mysql-connecter升级</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/06/LeetCode%E5%88%B7%E9%A2%98/310.%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/06/LeetCode%E5%88%B7%E9%A2%98/310.%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6%E6%A0%91/" class="post-title-link" itemprop="url">310.最小高度树</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-04-06 22:44:27 / 修改时间：22:53:38" itemprop="dateCreated datePublished" datetime="2022-04-06T22:44:27+08:00">2022-04-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="最小高度树">310.最小高度树</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给一棵包含n个节点的树，标记为0到n-1。给定数字n和一个有n-1条无向边的edges列表（每一个边都是一对标签），其中<code>edges[i]=[ai,bi]</code>表示树中节点ai和bi之间存在一条无向边。</p>
-<p>可选择树中任何一个节点作为根。当选择节点x作为根节点时，设结果树的高度为h。在所有可能的树中，找到所有最小高度的树，并按任意顺序返回它们的根节点标签列表。</p>
-<p>树的高度是指根节点和叶子节点之间最长向下路径上边的数量。</p>
-<h2 id="解题思路">解题思路</h2>
-<p>最小高度就是找最长的路径，然后在中间截断开就是最小的高度，最大的高度应该是最长路径</p>
-<p>先根据edges将每个点的边都构建好</p>
-<p>然后求出每个点的入度，因为树的边是无向的，所以出度就是入度</p>
-<p>用一个队列将入度为1的结点(叶子结点)全部放入队列中</p>
-<p>然后BFS，将这个结点移除，同时更新该节点连接的结点的入度信息</p>
-<p>如果连接结点的入度变为1，那么他就成为了叶子结点，将其放入队列中</p>
-<p>其实BFS的过程就是不断的找叶子结点，然后剥离，然后就可以找到最长的路径</p>
-<p>最后一次循环中队列中的元素就是最长路径中中间的两个结点</p>
 
       
     </div>

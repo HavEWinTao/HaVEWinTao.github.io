@@ -291,6 +291,83 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/24/LeetCode%E5%88%B7%E9%A2%98/814.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/24/LeetCode%E5%88%B7%E9%A2%98/814.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/" class="post-title-link" itemprop="url">814.二叉树剪枝</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-24 16:31:27 / 修改时间：16:34:36" itemprop="dateCreated datePublished" datetime="2022-07-24T16:31:27+08:00">2022-07-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="二叉树剪枝">814.二叉树剪枝</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给你二叉树的根结点root ，此外树的每个结点的值要么是0，要么是1</p>
+<p>返回移除了所有不包含1的子树的原二叉树</p>
+<p>节点node的子树为node本身加上所有node的后代</p>
+<h2 id="解题思路">解题思路</h2>
+<p>剪枝肯东是从根节点开始剪的，如果说一个结点是叶子结点，并且他的值是0，那就应该将这个结点剪去（设置为null），这样这个结果会向上传递</p>
+<p>最终对整棵树完成剪枝</p>
+<p>递归</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> TreeNode <span class="title function_">pruneTree</span><span class="params">(TreeNode root)</span> {</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">null</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    }</span><br><span class="line">    root.left = pruneTree(root.left);</span><br><span class="line">    root.right = pruneTree(root.right);</span><br><span class="line">    <span class="keyword">if</span> (root.val == <span class="number">0</span> &amp;&amp; root.left == <span class="literal">null</span> &amp;&amp; root.right == <span class="literal">null</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/24/LeetCode%E5%88%B7%E9%A2%98/757.%E8%AE%BE%E7%BD%AE%E4%BA%A4%E9%9B%86%E5%A4%A7%E5%B0%8F%E8%87%B3%E5%B0%91%E4%B8%BA2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1006,96 +1083,6 @@ isLeaf: 当这个节点是一个叶子结点时为True，如果它有4个子节�
 <p>四叉树交集——二进制做或操作</p>
 <p>递归，解释见注释</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Node <span class="title function_">intersect</span><span class="params">(Node quadTree1, Node quadTree2)</span> {</span><br><span class="line">    <span class="comment">//如果tree1是叶子结点，如果他的值是true就返回true（因为是做或操作）</span></span><br><span class="line">    <span class="keyword">if</span> (quadTree1.isLeaf) {</span><br><span class="line">        <span class="keyword">if</span> (quadTree1.val) {</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Node</span>(<span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//因为tree1是fasle所以返回tree2</span></span><br><span class="line">        <span class="keyword">return</span> quadTree2;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//互换位置</span></span><br><span class="line">    <span class="keyword">if</span> (quadTree2.isLeaf) {</span><br><span class="line">        <span class="keyword">return</span> intersect(quadTree2, quadTree1);</span><br><span class="line">    }</span><br><span class="line">    <span class="type">Node</span> <span class="variable">o1</span> <span class="operator">=</span> intersect(quadTree1.topLeft, quadTree2.topLeft);</span><br><span class="line">    <span class="type">Node</span> <span class="variable">o2</span> <span class="operator">=</span> intersect(quadTree1.topRight, quadTree2.topRight);</span><br><span class="line">    <span class="type">Node</span> <span class="variable">o3</span> <span class="operator">=</span> intersect(quadTree1.bottomLeft, quadTree2.bottomLeft);</span><br><span class="line">    <span class="type">Node</span> <span class="variable">o4</span> <span class="operator">=</span> intersect(quadTree1.bottomRight, quadTree2.bottomRight);</span><br><span class="line">    <span class="comment">//都是叶子结点并且val相同需要合并</span></span><br><span class="line">    <span class="keyword">if</span> (o1.isLeaf &amp;&amp; o2.isLeaf &amp;&amp; o3.isLeaf &amp;&amp; o4.isLeaf &amp;&amp; o1.val == o2.val &amp;&amp; o1.val == o3.val &amp;&amp; o1.val == o4.val) {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Node</span>(o1.val, <span class="literal">true</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//不是叶子结点，给四个区域赋值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Node</span>(<span class="literal">false</span>, <span class="literal">false</span>, o1, o2, o3, o4);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/11/LeetCode%E5%88%B7%E9%A2%98/2337.%E7%A7%BB%E5%8A%A8%E7%89%87%E6%AE%B5%E5%BE%97%E5%88%B0%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/11/LeetCode%E5%88%B7%E9%A2%98/2337.%E7%A7%BB%E5%8A%A8%E7%89%87%E6%AE%B5%E5%BE%97%E5%88%B0%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">2337.移动片段得到字符串</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-11 13:15:27" itemprop="dateCreated datePublished" datetime="2022-07-11T13:15:27+08:00">2022-07-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-12 13:21:33" itemprop="dateModified" datetime="2022-07-12T13:21:33+08:00">2022-07-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="移动片段得到字符串">2337.移动片段得到字符串</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>两个字符串start和target，长度均为n。每个字符串仅由字符'L'、'R'和'_'组成，其中：</p>
-<pre><code>字符'L'和'R'表示片段，其中片段'L'只有在其左侧直接存在一个空位时才能向左 移动，而片段'R'只有在其右侧直接存在一个空位时才能向右移动
-
-字符'_'表示可以被任意'L'或'R'片段占据的空位
-
-如果在移动字符串start中的片段任意次之后可以得到字符串target，返回true；否则，返回false</code></pre>
-<h2 id="解题思路">解题思路</h2>
-<p>周赛题，最开始思路太乱了</p>
-<p>对i从0~length做循环，i表示前i个字符已经一样了</p>
-<p>如果start[i]和target[i]一样就看下一个字符</p>
-<p>不一样的话根据target的字符情况，L、R、_进行讨论</p>
-<p>如果是L，start只能从i的右侧来移动L过来</p>
-<p>如果是R，因为左侧字符已经都一样了，直接返回false</p>
-<p>如果是_，就只能将start的R右移才能出现_</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canChange</span><span class="params">(String start, String target)</span> {</span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> start.length();</span><br><span class="line">    start1 = start.toCharArray();</span><br><span class="line">    target1 = target.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">        <span class="keyword">if</span> (start1[i] == target1[i]) {</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="type">char</span> <span class="variable">c</span> <span class="operator">=</span> target1[i];</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">'L'</span>) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">while</span> (index &lt; n &amp;&amp; start1[index] == <span class="string">'_'</span>) {</span><br><span class="line">                index++;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (index == n) {</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (start1[index] == <span class="string">'R'</span>) {</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                swap(index, i);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">'R'</span>) {</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">'_'</span>) {</span><br><span class="line">            <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">while</span> (index &lt; n &amp;&amp; start1[index] == <span class="string">'R'</span>) {</span><br><span class="line">                index++;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (index == n) {</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (start1[index] == <span class="string">'_'</span>) {</span><br><span class="line">                swap(i, index);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
       
     </div>
