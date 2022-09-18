@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="450.删除二叉搜索树中的节点 题目描述 一个二叉搜索树，删除一个结点（可能有可能没有） 返回删除结点后的树 解题思路 我原本想的是先找到这个结点，然后看右子树，如果没有右子树就可以直接删了，如果有右子树，右子树的最左结点的值替换删除结点的值，然后删除最左结点，但好像有点问题 题解思路是一样的，不过是把最左节点的左子树等于删除结点的左子树 右节点的最左结点肯定比删除结点大，可以顶替删">
+  <meta name="description" content="450.删除二叉搜索树中的节点题目描述一个二叉搜索树，删除一个结点（可能有可能没有） 返回删除结点后的树 解题思路我原本想的是先找到这个结点，然后看右子树，如果没有右子树就可以直接删了，如果有右子树，右子树的最左结点的值替换删除结点的值，然后删除最左结点，但好像有点问题 题解思路是一样的，不过是把最左节点的左子树等于删除结点的左子树 右节点的最左结点肯定比删除结点大，可以顶替删除结点的位置啊我觉得">
 <meta property="og:type" content="article">
 <meta property="og:title" content="450.删除二叉搜索树中的节点">
 <meta property="og:url" content="http://example.com/2022/06/03/LeetCode%E5%88%B7%E9%A2%98/450.%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="450.删除二叉搜索树中的节点 题目描述 一个二叉搜索树，删除一个结点（可能有可能没有） 返回删除结点后的树 解题思路 我原本想的是先找到这个结点，然后看右子树，如果没有右子树就可以直接删了，如果有右子树，右子树的最左结点的值替换删除结点的值，然后删除最左结点，但好像有点问题 题解思路是一样的，不过是把最左节点的左子树等于删除结点的左子树 右节点的最左结点肯定比删除结点大，可以顶替删">
+<meta property="og:description" content="450.删除二叉搜索树中的节点题目描述一个二叉搜索树，删除一个结点（可能有可能没有） 返回删除结点后的树 解题思路我原本想的是先找到这个结点，然后看右子树，如果没有右子树就可以直接删了，如果有右子树，右子树的最左结点的值替换删除结点的值，然后删除最左结点，但好像有点问题 题解思路是一样的，不过是把最左节点的左子树等于删除结点的左子树 右节点的最左结点肯定比删除结点大，可以顶替删除结点的位置啊我觉得">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-03T08:08:27.000Z">
-<meta property="article:modified_time" content="2022-06-04T09:57:22.000Z">
+<meta property="article:modified_time" content="2022-09-18T07:22:02.010Z">
 <meta property="article:author" content="樊tastic">
 <meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
@@ -327,7 +327,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-04 17:57:22" itemprop="dateModified" datetime="2022-06-04T17:57:22+08:00">2022-06-04</time>
+                <time title="修改时间：2022-09-18 15:22:02" itemprop="dateModified" datetime="2022-09-18T15:22:02+08:00">2022-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -350,12 +350,9 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="删除二叉搜索树中的节点">450.删除二叉搜索树中的节点</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>一个二叉搜索树，删除一个结点（可能有可能没有）</p>
+        <h1 id="450-删除二叉搜索树中的节点"><a href="#450-删除二叉搜索树中的节点" class="headerlink" title="450.删除二叉搜索树中的节点"></a>450.删除二叉搜索树中的节点</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个二叉搜索树，删除一个结点（可能有可能没有）</p>
 <p>返回删除结点后的树</p>
-<h2 id="解题思路">解题思路</h2>
-<p>我原本想的是先找到这个结点，然后看右子树，如果没有右子树就可以直接删了，如果有右子树，右子树的最左结点的值替换删除结点的值，然后删除最左结点，但好像有点问题</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>我原本想的是先找到这个结点，然后看右子树，如果没有右子树就可以直接删了，如果有右子树，右子树的最左结点的值替换删除结点的值，然后删除最左结点，但好像有点问题</p>
 <p>题解思路是一样的，不过是把最左节点的左子树等于删除结点的左子树</p>
 <p>右节点的最左结点肯定比删除结点大，可以顶替删除结点的位置啊我觉得</p>
 
@@ -441,7 +438,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">450.删除二叉搜索树中的节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#450-%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">450.删除二叉搜索树中的节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -454,7 +451,7 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">211</span>
+          <span class="site-state-item-count">217</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -467,7 +464,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

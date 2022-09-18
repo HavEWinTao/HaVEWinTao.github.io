@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="1606.找到处理最多请求的服务器 题目描述 k个服务器，一个服务器同一时间只能处理一个请求 一个arrive[]请求到达时间数组，一个load[]请求工作时间数组 第i个请求优先分配给第i%k个服务器，如果该服务器繁忙则继续查找下一个服务器，这些服务器视作一个环 返回最繁忙的服务器列表 解题思路 用一个数组记录每个服务器的执行任务的数量 用一个TreeSet来记录可用的服务器is">
+  <meta name="description" content="1606.找到处理最多请求的服务器题目描述k个服务器，一个服务器同一时间只能处理一个请求 一个arrive[]请求到达时间数组，一个load[]请求工作时间数组 第i个请求优先分配给第i%k个服务器，如果该服务器繁忙则继续查找下一个服务器，这些服务器视作一个环 返回最繁忙的服务器列表 解题思路用一个数组记录每个服务器的执行任务的数量 用一个TreeSet来记录可用的服务器isAvailable 用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1606.找到处理最多请求的服务器">
 <meta property="og:url" content="http://example.com/2022/03/30/LeetCode%E5%88%B7%E9%A2%98/1606.%E6%89%BE%E5%88%B0%E5%A4%84%E7%90%86%E6%9C%80%E5%A4%9A%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="1606.找到处理最多请求的服务器 题目描述 k个服务器，一个服务器同一时间只能处理一个请求 一个arrive[]请求到达时间数组，一个load[]请求工作时间数组 第i个请求优先分配给第i%k个服务器，如果该服务器繁忙则继续查找下一个服务器，这些服务器视作一个环 返回最繁忙的服务器列表 解题思路 用一个数组记录每个服务器的执行任务的数量 用一个TreeSet来记录可用的服务器is">
+<meta property="og:description" content="1606.找到处理最多请求的服务器题目描述k个服务器，一个服务器同一时间只能处理一个请求 一个arrive[]请求到达时间数组，一个load[]请求工作时间数组 第i个请求优先分配给第i%k个服务器，如果该服务器繁忙则继续查找下一个服务器，这些服务器视作一个环 返回最繁忙的服务器列表 解题思路用一个数组记录每个服务器的执行任务的数量 用一个TreeSet来记录可用的服务器isAvailable 用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-30T03:35:27.000Z">
-<meta property="article:modified_time" content="2022-03-30T03:41:18.000Z">
+<meta property="article:modified_time" content="2022-09-18T07:22:01.828Z">
 <meta property="article:author" content="樊tastic">
 <meta property="article:tag" content="模拟">
 <meta name="twitter:card" content="summary">
@@ -319,10 +319,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-03-30 11:35:27 / 修改时间：11:41:18" itemprop="dateCreated datePublished" datetime="2022-03-30T11:35:27+08:00">2022-03-30</time>
+              <time title="创建时间：2022-03-30 11:35:27" itemprop="dateCreated datePublished" datetime="2022-03-30T11:35:27+08:00">2022-03-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -344,14 +350,11 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="找到处理最多请求的服务器">1606.找到处理最多请求的服务器</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>k个服务器，一个服务器同一时间只能处理一个请求</p>
+        <h1 id="1606-找到处理最多请求的服务器"><a href="#1606-找到处理最多请求的服务器" class="headerlink" title="1606.找到处理最多请求的服务器"></a>1606.找到处理最多请求的服务器</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>k个服务器，一个服务器同一时间只能处理一个请求</p>
 <p>一个arrive[]请求到达时间数组，一个load[]请求工作时间数组</p>
 <p>第i个请求优先分配给第i%k个服务器，如果该服务器繁忙则继续查找下一个服务器，这些服务器视作一个环</p>
 <p>返回最繁忙的服务器列表</p>
-<h2 id="解题思路">解题思路</h2>
-<p>用一个数组记录每个服务器的执行任务的数量</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>用一个数组记录每个服务器的执行任务的数量</p>
 <p>用一个TreeSet来记录可用的服务器isAvailable</p>
 <p>用一个优先队列isBusy记录任务完成时间以及这个服务器序号，按完成时间升序排序</p>
 <p>开始模拟任务达到的过程</p>
@@ -359,7 +362,8 @@ mjx-container[display="true"] + br {
 2. 如果有已经执行完任务的服务器将他从isBusy中弹出并且加入到isAvailable中去
 3. 如果isAvailable为空这个任务执行不了
 4. 否则按规则找到可以执行的服务器
-5. 更新isAvailable和isBusy</code></pre>
+5. 更新isAvailable和isBusy
+</code></pre>
 <p>最后遍历每个服务器执行任务的数量并得出答案</p>
 
     </div>
@@ -444,7 +448,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%BE%E5%88%B0%E5%A4%84%E7%90%86%E6%9C%80%E5%A4%9A%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">1606.找到处理最多请求的服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1606-%E6%89%BE%E5%88%B0%E5%A4%84%E7%90%86%E6%9C%80%E5%A4%9A%E8%AF%B7%E6%B1%82%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">1606.找到处理最多请求的服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,7 +461,7 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">211</span>
+          <span class="site-state-item-count">217</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -470,7 +474,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

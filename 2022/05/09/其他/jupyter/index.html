@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="Jupyter  启动jupyter没有conda环境的内核 去这个文件夹中加 C:\Users\ZSins7588\AppData\Roaming\jupyter\kernels\ 如加pytorch-gat kernel.json 1234567891011{ &quot;argv&quot;: [  &quot;D:\\Software\\anaconda\\python.exe&quot;,  &quot;-m&quot;,  &quot;ip">
+  <meta name="description" content="Jupyter  启动jupyter没有conda环境的内核 去这个文件夹中加 C:\Users\ZSins7588\AppData\Roaming\jupyter\kernels\ 如加pytorch-gat kernel.json 1234567891011{ &quot;argv&quot;: [  &quot;D:\\Software\\anaconda\\python.exe&quot;,  &quot;-m&quot;,  &quot;ipykernel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jupyter">
 <meta property="og:url" content="http://example.com/2022/05/09/%E5%85%B6%E4%BB%96/jupyter/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="Jupyter  启动jupyter没有conda环境的内核 去这个文件夹中加 C:\Users\ZSins7588\AppData\Roaming\jupyter\kernels\ 如加pytorch-gat kernel.json 1234567891011{ &quot;argv&quot;: [  &quot;D:\\Software\\anaconda\\python.exe&quot;,  &quot;-m&quot;,  &quot;ip">
+<meta property="og:description" content="Jupyter  启动jupyter没有conda环境的内核 去这个文件夹中加 C:\Users\ZSins7588\AppData\Roaming\jupyter\kernels\ 如加pytorch-gat kernel.json 1234567891011{ &quot;argv&quot;: [  &quot;D:\\Software\\anaconda\\python.exe&quot;,  &quot;-m&quot;,  &quot;ipykernel">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-09T08:26:27.000Z">
-<meta property="article:modified_time" content="2022-05-09T08:29:16.000Z">
+<meta property="article:modified_time" content="2022-09-18T07:22:01.827Z">
 <meta property="article:author" content="樊tastic">
 <meta name="twitter:card" content="summary">
 
@@ -318,10 +318,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-05-09 16:26:27 / 修改时间：16:29:16" itemprop="dateCreated datePublished" datetime="2022-05-09T16:26:27+08:00">2022-05-09</time>
+              <time title="创建时间：2022-05-09 16:26:27" itemprop="dateCreated datePublished" datetime="2022-05-09T16:26:27+08:00">2022-05-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -343,14 +349,15 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="jupyter">Jupyter</h1>
-<hr>
+        <h1 id="Jupyter"><a href="#Jupyter" class="headerlink" title="Jupyter"></a>Jupyter</h1><hr>
+
 <p>启动jupyter没有conda环境的内核</p>
 <p>去这个文件夹中加</p>
 <p><code>C:\Users\ZSins7588\AppData\Roaming\jupyter\kernels\</code></p>
 <p>如加pytorch-gat</p>
 <p>kernel.json</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line"> <span class="attr">"argv"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="string">"D:\\Software\\anaconda\\python.exe"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">"-m"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">"ipykernel_launcher"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">"-f"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">"{connection_file}"</span></span><br><span class="line"> <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"> <span class="attr">"display_name"</span><span class="punctuation">:</span> <span class="string">"gat"</span><span class="punctuation">,</span></span><br><span class="line"> <span class="attr">"language"</span><span class="punctuation">:</span> <span class="string">"python"</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></table></figure>
+
 <p>也可以使用命令自己生成</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name pytorch-gat --display-name "gat"</span><br></pre></td></tr></table></figure>
 
@@ -433,7 +440,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jupyter"><span class="nav-number">1.</span> <span class="nav-text">Jupyter</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jupyter"><span class="nav-number">1.</span> <span class="nav-text">Jupyter</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -446,7 +453,7 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">211</span>
+          <span class="site-state-item-count">217</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -459,7 +466,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

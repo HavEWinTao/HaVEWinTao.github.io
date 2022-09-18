@@ -291,6 +291,486 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/02/LeetCode%E5%88%B7%E9%A2%98/146.LRU%20%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/02/LeetCode%E5%88%B7%E9%A2%98/146.LRU%20%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">146.LRU 缓存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-02 13:53:27" itemprop="dateCreated datePublished" datetime="2022-04-02T13:53:27+08:00">2022-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="146-LRU-缓存"><a href="#146-LRU-缓存" class="headerlink" title="146.LRU 缓存"></a>146.LRU 缓存</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>模拟一个cache的LRU(最近最少使用)的调度策略</p>
+<p>其中cache的容量是capacity</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>其实体系结构操作系统课都学过LRU的原理，怎么用编程来实现呢？</p>
+<p>体系结构课给出的描述是：首先应该有一个栈，这个栈可以将一个元素给调到栈顶，然后还可以将超出容量的元素从另一端挤出去(应该是这样)</p>
+<p>实现方式：</p>
+<p>双向链表+Map</p>
+<p>双向链表的结点保存了一个value，然后在Map中可以根据key找到这个双向链表中的结点</p>
+<p>这样的话就是在头部插入元素，在尾部删除元素，将某一元素调整到头部三个操作</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/207.%E8%AF%BE%E7%A8%8B%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/207.%E8%AF%BE%E7%A8%8B%E8%A1%A8/" class="post-title-link" itemprop="url">207.课程表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-01 13:45:27" itemprop="dateCreated datePublished" datetime="2022-04-01T13:45:27+08:00">2022-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="207-课程表"><a href="#207-课程表" class="headerlink" title="207.课程表"></a>207.课程表</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>就是一共有numCourses门课，然后有一些先修课程的要求，判断能够完成所有的课程学习</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>其实一共有numCourses个结点，然后先修课程的关系构成一张图</p>
+<p>先修课程对[0,1]表示：想要学习课程0，你需要先完成课程1，也就是有一个结点1指向0的边</p>
+<p>判断这个图中是否存在圈</p>
+<p>每个节点有三个状态</p>
+<ol>
+<li><p>未搜索：还没有搜索到这个节点</p>
+</li>
+<li><p>搜索中：我们搜索过这个节点，但还没有回溯到该节点，即该节点还没有入栈，还有相邻的节点没有搜索完成）；</p>
+</li>
+<li><p>已完成：我们搜索过并且回溯过这个节点，即该节点已经入栈，并且所有该节点的相邻节点都出现在栈的更底部的位置，满足拓扑排序的要求。</p>
+</li>
+</ol>
+<p>当深度优先搜索搜索到搜索中状态的结点的时候说明该图存在环，就有了循环依赖</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/221.%E6%9C%80%E5%A4%A7%E6%AD%A3%E6%96%B9%E5%BD%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/221.%E6%9C%80%E5%A4%A7%E6%AD%A3%E6%96%B9%E5%BD%A2/" class="post-title-link" itemprop="url">221.最大正方形</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-01 13:42:27" itemprop="dateCreated datePublished" datetime="2022-04-01T13:42:27+08:00">2022-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="221-最大正方形"><a href="#221-最大正方形" class="headerlink" title="221.最大正方形"></a>221.最大正方形</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个由’0’和’1’组成的二维矩阵内，找到只包含’1’的最大正方形，并返回其面积</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>dp[i][j]表示右下角是i,j格的最大正方形边长</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; matrix.length; i++) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].length; j++) {</span><br><span class="line">        <span class="keyword">if</span> (matrix[i][j] == <span class="string">'1'</span>) {</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) {</span><br><span class="line">                dp[i][j] = <span class="number">1</span>;</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                dp[i][j] = Math.min(Math.min(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]), dp[i - <span class="number">1</span>][j - <span class="number">1</span>]) + <span class="number">1</span>;</span><br><span class="line">            }</span><br><span class="line">            ans = Math.max(ans, dp[i][j]);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+<p>不断更新的同时记录最大边长，最后返回最大边长的平方即可</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/954.%E4%BA%8C%E5%80%8D%E6%95%B0%E5%AF%B9%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/01/LeetCode%E5%88%B7%E9%A2%98/954.%E4%BA%8C%E5%80%8D%E6%95%B0%E5%AF%B9%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">954.二倍数对数组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-01 13:16:27" itemprop="dateCreated datePublished" datetime="2022-04-01T13:16:27+08:00">2022-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:02" itemprop="dateModified" datetime="2022-09-18T15:22:02+08:00">2022-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="954-二倍数对数组"><a href="#954-二倍数对数组" class="headerlink" title="954.二倍数对数组"></a>954.二倍数对数组</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个长度为偶数的整数数组arr，只有对arr进行重组后arr[2<em>i+1]=2</em>arr[2*i]时，返回true；否则，返回false</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>肯定要先排序，然后记录每个元素的个数</p>
+<p>直接用TreeSet就可以了，TreeMap会将key排序，并且记录每个数字的数量</p>
+<p>然后对key进行判断，key&gt;0的话就是找key*2</p>
+<p>key&lt;0的话就是先判断key是否能被2整除，再找key/2</p>
+<p>每次匹配后都得把这些数减去相应的数量，当找不到匹配的数时就返回false，不然就是true</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/287.%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/287.%E5%AF%BB%E6%89%BE%E9%87%8D%E5%A4%8D%E6%95%B0/" class="post-title-link" itemprop="url">287.寻找重复数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-31 13:11:27" itemprop="dateCreated datePublished" datetime="2022-03-31T13:11:27+08:00">2022-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="287-寻找重复数"><a href="#287-寻找重复数" class="headerlink" title="287.寻找重复数"></a>287.寻找重复数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个包含n+1个整数的数组nums，其数字都在[1,n]范围内（包括1和n），假设 nums 只有 一个重复的整数，返回这个重复的数。</p>
+<p>要求:不修改原数组,额外空间O(1),时间复杂度O(n)</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>做一个i到nums[i]的映射</p>
+<p>如[1,3,4,2,2]就是0–&gt;1–&gt;3–&gt;2–&gt;4–&gt;2<br>将(i,nums[i])抽象成了一个链表,最后的4–&gt;2就构成了一个环</p>
+<p>这个题就和<a href="/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/index.html">142.环形链表II</a>一模一样了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/200.%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/200.%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/" class="post-title-link" itemprop="url">200.岛屿数量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-31 13:02:27" itemprop="dateCreated datePublished" datetime="2022-03-31T13:02:27+08:00">2022-03-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="200-岛屿数量"><a href="#200-岛屿数量" class="headerlink" title="200.岛屿数量"></a>200.岛屿数量</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给一个char[][]，0表示水，1表示陆地</p>
+<p>岛屿由陆地水平竖直方向相连，求岛屿的数量</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>当碰到陆地时进行DFS，把这块陆地置为0</p>
+<p>然后就可以得到陆地的数量了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/198.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -314,10 +794,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-03-31 12:57:27 / 修改时间：13:01:14" itemprop="dateCreated datePublished" datetime="2022-03-31T12:57:27+08:00">2022-03-31</time>
+              <time title="创建时间：2022-03-31 12:57:27" itemprop="dateCreated datePublished" datetime="2022-03-31T12:57:27+08:00">2022-03-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -339,14 +825,10 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="打家劫舍">198.打家劫舍</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你
-不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。
-如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<h2 id="解题思路">解题思路</h2>
-<p>dp[i][0]表示不拿第i个屋，dp[i][1]表示拿第i个屋</p>
+          <h1 id="198-打家劫舍"><a href="#198-打家劫舍" class="headerlink" title="198.打家劫舍"></a>198.打家劫舍</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。<br>如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>dp[i][0]表示不拿第i个屋，dp[i][1]表示拿第i个屋</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">0</span>][<span class="number">1</span>] = nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i++) {</span><br><span class="line">    dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>], dp[i - <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line">    dp[i][<span class="number">1</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>] + nums[i];</span><br><span class="line">}</span><br><span class="line"><span class="keyword">return</span> Math.max(dp[nums.length - <span class="number">1</span>][<span class="number">0</span>], dp[nums.length - <span class="number">1</span>][<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+
 <p>不偷i屋，那么dp[i][0]应该是偷或者不偷i-1屋的最大值</p>
 <p>偷i屋，那么dp[i][1]应该是不偷i-1屋的值+该屋的值</p>
 
@@ -391,10 +873,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-03-31 12:48:27 / 修改时间：12:56:40" itemprop="dateCreated datePublished" datetime="2022-03-31T12:48:27+08:00">2022-03-31</time>
+              <time title="创建时间：2022-03-31 12:48:27" itemprop="dateCreated datePublished" datetime="2022-03-31T12:48:27+08:00">2022-03-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -416,11 +904,8 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="环形链表ii">142.环形链表II</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给定一个链表的头节点head，返回链表开始入环的第一个节点。如果链表无环，则返回null。</p>
-<h2 id="解题思路">解题思路</h2>
-<p><a href="/2022/03/22/LeetCode刷题/141.环形链表/index.html">141.环形链表</a>是判断链表是否存在环，该题是找到环的入口</p>
+          <h1 id="142-环形链表II"><a href="#142-环形链表II" class="headerlink" title="142.环形链表II"></a>142.环形链表II</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表的头节点head，返回链表开始入环的第一个节点。如果链表无环，则返回null。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><a href="/2022/03/22/LeetCode%E5%88%B7%E9%A2%98/141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/index.html">141.环形链表</a>是判断链表是否存在环，该题是找到环的入口</p>
 <p>如果不存在环，那么快指针一定会走到null</p>
 <p>如果存在环，设链表的左侧非环长度是m，环形长度是c</p>
 <p>快指针走了2n个结点，慢指针走了n个结点，那么慢指针就在环内走了n-m个结点</p>
@@ -467,10 +952,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-03-30 11:35:27 / 修改时间：11:41:18" itemprop="dateCreated datePublished" datetime="2022-03-30T11:35:27+08:00">2022-03-30</time>
+              <time title="创建时间：2022-03-30 11:35:27" itemprop="dateCreated datePublished" datetime="2022-03-30T11:35:27+08:00">2022-03-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -492,14 +983,11 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="找到处理最多请求的服务器">1606.找到处理最多请求的服务器</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>k个服务器，一个服务器同一时间只能处理一个请求</p>
+          <h1 id="1606-找到处理最多请求的服务器"><a href="#1606-找到处理最多请求的服务器" class="headerlink" title="1606.找到处理最多请求的服务器"></a>1606.找到处理最多请求的服务器</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>k个服务器，一个服务器同一时间只能处理一个请求</p>
 <p>一个arrive[]请求到达时间数组，一个load[]请求工作时间数组</p>
 <p>第i个请求优先分配给第i%k个服务器，如果该服务器繁忙则继续查找下一个服务器，这些服务器视作一个环</p>
 <p>返回最繁忙的服务器列表</p>
-<h2 id="解题思路">解题思路</h2>
-<p>用一个数组记录每个服务器的执行任务的数量</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>用一个数组记录每个服务器的执行任务的数量</p>
 <p>用一个TreeSet来记录可用的服务器isAvailable</p>
 <p>用一个优先队列isBusy记录任务完成时间以及这个服务器序号，按完成时间升序排序</p>
 <p>开始模拟任务达到的过程</p>
@@ -507,7 +995,8 @@ mjx-container[display="true"] + br {
 2. 如果有已经执行完任务的服务器将他从isBusy中弹出并且加入到isAvailable中去
 3. 如果isAvailable为空这个任务执行不了
 4. 否则按规则找到可以执行的服务器
-5. 更新isAvailable和isBusy</code></pre>
+5. 更新isAvailable和isBusy
+</code></pre>
 <p>最后遍历每个服务器执行任务的数量并得出答案</p>
 
       
@@ -551,10 +1040,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-03-30 11:25:27 / 修改时间：11:30:20" itemprop="dateCreated datePublished" datetime="2022-03-30T11:25:27+08:00">2022-03-30</time>
+              <time title="创建时间：2022-03-30 11:25:27" itemprop="dateCreated datePublished" datetime="2022-03-30T11:25:27+08:00">2022-03-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -576,506 +1071,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="二叉树的最近公共祖先">236.二叉树的最近公共祖先</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先</p>
+          <h1 id="236-二叉树的最近公共祖先"><a href="#236-二叉树的最近公共祖先" class="headerlink" title="236.二叉树的最近公共祖先"></a>236.二叉树的最近公共祖先</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先</p>
 <p>一个节点也可以是它自己的祖先</p>
-<h2 id="解题思路">解题思路</h2>
-<p>这个题大二小学期好像碰到过类似的，当时感觉老难了，现在竟然一下写出来了</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这个题大二小学期好像碰到过类似的，当时感觉老难了，现在竟然一下写出来了</p>
 <p>用一个Map记录每个节点的父节点，一遍DFS完成Map的构建</p>
 <p>然后记录一个结点的父节点的路径，用Set记录即可</p>
 <p>然后查找另一个结点的父节点路径，并判断是否出现在Set中，第一次出现在Set中的就是最近公共祖先</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/139.%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/139.%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/" class="post-title-link" itemprop="url">139.单词拆分</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-29 11:16:27" itemprop="dateCreated datePublished" datetime="2022-03-29T11:16:27+08:00">2022-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-30 11:24:44" itemprop="dateModified" datetime="2022-03-30T11:24:44+08:00">2022-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="单词拆分">139.单词拆分</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给你一个字符串s和一个字符串列表wordDict作为字典</p>
-<p>判断是否可以利用字典中出现的单词拼接出s</p>
-<p>不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用</p>
-<h2 id="解题思路">解题思路</h2>
-<p>我想到的是DFS，碰到了个什么s是"aaaaaaaaa···",wordDict是["a","aa",···]的用例超时了，觉得确实有问题，发现自己好容易吧dp题想成DFS(自闭.jpg</p>
-<hr>
-<p>dp[i]表示字符串s前i个字符是否能被空格拆分成若干个字典中出现的单词</p>
-<p>为了方便查找字典，先将字典的单词保存到了一个Set中去</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= s.length(); i++) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; i; j++) {</span><br><span class="line">        <span class="comment">//substring(i,j),[i,j)包左不包右</span></span><br><span class="line">        <span class="keyword">if</span> (dp[j] &amp;&amp; wordDictSet.contains(s.substring(j, i))) {</span><br><span class="line">            dp[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>如果dp[j]也就是前j个字符可以被拆分，并且词典中包括s[j,i)的字符串，那么前i个字符也可以被拆分</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/279.%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/" class="post-title-link" itemprop="url">279.完全平方数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-29 11:07:27" itemprop="dateCreated datePublished" datetime="2022-03-29T11:07:27+08:00">2022-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-30 11:14:56" itemprop="dateModified" datetime="2022-03-30T11:14:56+08:00">2022-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="完全平方数">279.完全平方数</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给一个整数n，返回和为n的完全平方数的最少数量</p>
-<p>eg:12=4+4+4 ans=3</p>
-<h2 id="解题思路">解题思路</h2>
-<p>dp[i]表示整数i所需要的最少完全平方数的数量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">1</span>; sqrt[j] &lt;= i; j++) {</span><br><span class="line">    <span class="comment">//我也想到了dp[i-j*j]</span></span><br><span class="line">    min = Math.min(min, dp[i - sqrt[j]]);</span><br><span class="line">}</span><br><span class="line">dp[i] = min + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p>j从1开始一直到j<em>j&lt;=i,这样的话第一次min就会更新成dp[i-1]，如果j</em>j=i就会更新为dp[0]</p>
-<p>然后最后进行+1操作即可，因为总归会一个完全平方数哪怕是1，当然也有可能是更大的</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/29/%E5%85%B6%E4%BB%96/mysql%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/29/%E5%85%B6%E4%BB%96/mysql%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">mysql基础</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-29 11:02:27" itemprop="dateCreated datePublished" datetime="2022-03-29T11:02:27+08:00">2022-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-30 11:06:12" itemprop="dateModified" datetime="2022-03-30T11:06:12+08:00">2022-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="mysql基础">mysql基础</h1>
-<p>MySQL使用三值逻辑——TRUE,FALSE和UNKNOWN。任何与
-NULL值进行的比较都会与第三种值UNKNOWN做比较。这个“任何值”包括NULL本身！</p>
-<p>这就是为什么MySQL提供IS NULL和IS NOT
-NULL两种操作来对NULL特殊判断。</p>
-<hr>
-<p>查询表只想取最大，最小值或最大的n个值时可以先排序，然后使用limit</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/2024.%E8%80%83%E8%AF%95%E7%9A%84%E6%9C%80%E5%A4%A7%E5%9B%B0%E6%89%B0%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/29/LeetCode%E5%88%B7%E9%A2%98/2024.%E8%80%83%E8%AF%95%E7%9A%84%E6%9C%80%E5%A4%A7%E5%9B%B0%E6%89%B0%E5%BA%A6/" class="post-title-link" itemprop="url">2024.考试的最大困扰度</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-29 10:55:27" itemprop="dateCreated datePublished" datetime="2022-03-29T10:55:27+08:00">2022-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-03-30 11:00:30" itemprop="dateModified" datetime="2022-03-30T11:00:30+08:00">2022-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="考试的最大困扰度">2024.考试的最大困扰度</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>一个由T和F组成的字符串，最大化连续相同的字符，可以将一个字符修改为T或F，最多修改k次</p>
-<h2 id="解题思路">解题思路</h2>
-<p>两个指针left和right记录[left right]内T和F的数量</p>
-<p>left和right都等于0，将right右移遍历整个字符串</p>
-<p>如果T,F数量中的最小值比k大了，说明以及无法修改了，将left左移，然后修改移动后的[left
-right]的数量，直到满足T,F数量中的最小值等于k</p>
-<p>然后每次循环中都维护[left,right]的最大长度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (Math.min(tCnt, fCnt) &gt; k) {</span><br><span class="line">    <span class="keyword">if</span> (answerKey.charAt(left) == <span class="string">'T'</span>) {</span><br><span class="line">        tCnt--;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        fCnt--;</span><br><span class="line">    }</span><br><span class="line">    left++;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/28/LeetCode%E5%88%B7%E9%A2%98/128.%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/28/LeetCode%E5%88%B7%E9%A2%98/128.%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97/" class="post-title-link" itemprop="url">128.最长连续序列</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-28 12:13:27 / 修改时间：12:30:00" itemprop="dateCreated datePublished" datetime="2022-03-28T12:13:27+08:00">2022-03-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="最长连续序列">128.最长连续序列</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给定一个未排序的整数数组nums，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。</p>
-<p>eg:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [100,4,200,1,3,2]</span><br><span class="line">输出：4</span><br><span class="line">解释：最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。</span><br></pre></td></tr></table></figure>
-<h2 id="解题思路">解题思路</h2>
-<p>题目要求时间复杂度为O(n)，所以排序O(nlong)肯定不行了,同样暴力的查找<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></span>肯定也不行</p>
-<ol type="1">
-<li><p>Set</p>
-<p>集合存所有数字，遍历集合</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">cur</span> <span class="operator">=</span> num;</span><br><span class="line"><span class="keyword">if</span> (!set.contains(cur - <span class="number">1</span>)) {</span><br><span class="line">    <span class="keyword">while</span> (set.contains(cur + <span class="number">1</span>)) {</span><br><span class="line">        cur++;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
-<p>只有当num-1不存在时，才开始向后遍历，这样时间复杂度就是O(n)</p></li>
-<li><p>Map</p>
-<p>// key表示num，value表示num最远到达的连续右边界</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (map.containsKey(nums[i])) {</span><br><span class="line">    <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> map.get(nums[i]);</span><br><span class="line">    <span class="keyword">while</span> (map.containsKey(right + <span class="number">1</span>)) {</span><br><span class="line">        map.remove(right);</span><br><span class="line">        right = map.get(right + <span class="number">1</span>);</span><br><span class="line">    }</span><br><span class="line">    map.put(nums[i], right);</span><br><span class="line">    ans = Math.max(ans, right - nums[i] + <span class="number">1</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
-<p>每次while循环中把遍历到的right键值对删除，只通过最后一步put保留这次循环中最小元素到最大元素的键值对。这样后续元素才可以因为map中没有相应的key提前退出循环，达到减少遍历次数的效果。</p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/28/LeetCode%E5%88%B7%E9%A2%98/332.%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/28/LeetCode%E5%88%B7%E9%A2%98/332.%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/" class="post-title-link" itemprop="url">332.零钱兑换</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-03-28 12:04:27 / 修改时间：12:12:56" itemprop="dateCreated datePublished" datetime="2022-03-28T12:04:27+08:00">2022-03-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="零钱兑换">332.零钱兑换</h1>
-<h2 id="题目描述">题目描述</h2>
-<p>给一个数组coins里面的值是不同面额的硬币，每个硬币的数量是无限的</p>
-<p>给一个amount，求总金额为amount需要最少多少硬币数</p>
-<h2 id="解题思路">解题思路</h2>
-<p>我: dp[i][j]表示在前i种硬币中拿总额为j的硬币，需要多少硬币</p>
-<p>题解：dp[i]表示拿总额为i的硬币需要多少个硬币</p>
-<p>其实两种是一样，需要的遍历次数也是一样的，都是O(mn)，但我好容易把一维能解决的dp想成二维的（捂脸.jpg</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= amount; i++) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; coins.length; j++) {</span><br><span class="line">        <span class="keyword">if</span> (coins[j] &lt;= i) {</span><br><span class="line">            dp[i] = Math.min(dp[i], dp[i - coins[j]] + <span class="number">1</span>);<span class="comment">//拿第j枚硬币</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>因为是从小到大遍历的，所以不需要考虑拿多枚的情况，只要维护住dp[i]的最小值就可以</p>
 
       
     </div>
@@ -1159,7 +1160,7 @@ right]的数量，直到满足T,F数量中的最小值等于k</p>
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">211</span>
+          <span class="site-state-item-count">217</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1172,7 +1173,7 @@ right]的数量，直到满足T,F数量中的最小值等于k</p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
