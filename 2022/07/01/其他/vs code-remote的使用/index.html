@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="vs code-remote的使用在vs code中下载vs code remote插件 123Host ubuntu-s1(主机名)    HostName 192.168.231.129(主机ip)    User fantastic(登录用户名)  免密登录ssh-keygen -t rsa -C “邮箱” 生成的文件为$USER.ssh\id_rsa 将这个文件传到虚拟机中 进入到登录用户">
+  <meta name="description" content="vs code-remote的使用 在vs code中下载vs code remote插件 123Host ubuntu-s1(主机名)    HostName 192.168.231.129(主机ip)    User fantastic(登录用户名) 免密登录 ssh-keygen -t rsa -C &quot;邮箱&quot; 生成的文件为$USER.ssh_rsa 将这个文件传到虚拟机中 进入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vs code-remote的使用">
 <meta property="og:url" content="http://example.com/2022/07/01/%E5%85%B6%E4%BB%96/vs%20code-remote%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="vs code-remote的使用在vs code中下载vs code remote插件 123Host ubuntu-s1(主机名)    HostName 192.168.231.129(主机ip)    User fantastic(登录用户名)  免密登录ssh-keygen -t rsa -C “邮箱” 生成的文件为$USER.ssh\id_rsa 将这个文件传到虚拟机中 进入到登录用户">
+<meta property="og:description" content="vs code-remote的使用 在vs code中下载vs code remote插件 123Host ubuntu-s1(主机名)    HostName 192.168.231.129(主机ip)    User fantastic(登录用户名) 免密登录 ssh-keygen -t rsa -C &quot;邮箱&quot; 生成的文件为$USER.ssh_rsa 将这个文件传到虚拟机中 进入">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-01T13:34:27.000Z">
-<meta property="article:modified_time" content="2022-09-18T07:22:01.827Z">
+<meta property="article:modified_time" content="2022-10-05T08:01:02.925Z">
 <meta property="article:author" content="樊tastic">
 <meta name="twitter:card" content="summary">
 
@@ -76,7 +76,6 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="樊tastic~" type="application/atom+xml">
 <style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -189,7 +188,8 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style></head>
+</style><link rel="alternate" href="/atom.xml" title="樊tastic~" type="application/atom+xml">
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -326,7 +326,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
+                <time title="修改时间：2022-10-05 16:01:02" itemprop="dateModified" datetime="2022-10-05T16:01:02+08:00">2022-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -349,21 +349,28 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="vs-code-remote的使用"><a href="#vs-code-remote的使用" class="headerlink" title="vs code-remote的使用"></a>vs code-remote的使用</h1><p>在vs code中下载vs code remote插件</p>
+        <h1 id="vs-code-remote的使用">vs code-remote的使用</h1>
+<p>在vs code中下载vs code remote插件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host ubuntu-s1(主机名)</span><br><span class="line">    HostName 192.168.231.129(主机ip)</span><br><span class="line">    User fantastic(登录用户名)</span><br></pre></td></tr></table></figure>
-
-<h2 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h2><p>ssh-keygen -t rsa -C “邮箱”</p>
-<p>生成的文件为$USER.ssh\id_rsa</p>
+<h2 id="免密登录">免密登录</h2>
+<p>ssh-keygen -t rsa -C "邮箱"</p>
+<p>生成的文件为$USER.ssh_rsa</p>
 <p>将这个文件传到虚拟机中</p>
 <p>进入到登录用户的.ssh文件夹中</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> id_rsa.pub /root/.ssh/</span><br><span class="line"><span class="built_in">cat</span> id_rsa.pub &gt;&gt; authorized_keys</span><br><span class="line">sudo /etc/init.d/ssh restart</span><br></pre></td></tr></table></figure>
-
+<p>/etc/ssh/sshd_config</p>
+<p>PermitRootLogin</p>
+<p>PubkeyAuthentication yes</p>
+<p>systemctl restart sshd.service</p>
 <p>这样就可以免密登录了</p>
-<h2 id="开启root用户"><a href="#开启root用户" class="headerlink" title="开启root用户"></a>开启root用户</h2><p>sever版的ubuntu初始化时不能创建root用户</p>
+<h2 id="开启root用户">开启root用户</h2>
+<p>sever版的ubuntu初始化时不能创建root用户</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root(开启root用户)</span><br><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-
 <p>更改下面的设置</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
+<h2 id="关闭防火墙">关闭防火墙</h2>
+<p>systemctl stop firewalld.service</p>
+
     </div>
 
     
@@ -443,7 +450,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vs-code-remote%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">vs code-remote的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">免密登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFroot%E7%94%A8%E6%88%B7"><span class="nav-number">1.2.</span> <span class="nav-text">开启root用户</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vs-code-remote%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">vs code-remote的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">免密登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFroot%E7%94%A8%E6%88%B7"><span class="nav-number">1.2.</span> <span class="nav-text">开启root用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">1.3.</span> <span class="nav-text">关闭防火墙</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -456,7 +463,7 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">234</span>
+          <span class="site-state-item-count">241</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -469,7 +476,7 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
