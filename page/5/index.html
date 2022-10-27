@@ -291,6 +291,86 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/11/LeetCode%E5%88%B7%E9%A2%98/6177.%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E4%BC%98%E5%88%92%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="樊tastic">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樊tastic~">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/11/LeetCode%E5%88%B7%E9%A2%98/6177.%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E4%BC%98%E5%88%92%E5%88%86/" class="post-title-link" itemprop="url">6177.子字符串的最优划分</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-09-11 15:46:27" itemprop="dateCreated datePublished" datetime="2022-09-11T15:46:27+08:00">2022-09-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-18 15:22:02" itemprop="dateModified" datetime="2022-09-18T15:22:02+08:00">2022-09-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="6177-子字符串的最优划分"><a href="#6177-子字符串的最优划分" class="headerlink" title="6177. 子字符串的最优划分"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/optimal-partition-of-string/">6177. 子字符串的最优划分</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个字符串s ，将该字符串划分成一个或多个子字符串，并满足每个子字符串中的字符都是唯一的。也就是说，在单个子字符串中，字母的出现次数都不超过 一次 </p>
+<p>满足题目要求的情况下，返回最少需要划分多少个子字符串</p>
+<p>注意，划分后，原字符串中的每个字符都应该恰好属于一个子字符串</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>贪心从第一个字母开始遍历整个字符串即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span>[] flag = <span class="keyword">new</span> <span class="title class_">boolean</span>[<span class="number">26</span>];</span><br><span class="line"><span class="keyword">while</span> (index &lt; n) {</span><br><span class="line">    <span class="keyword">if</span> (flag[str[index] - <span class="string">'a'</span>]) {</span><br><span class="line">        flag = <span class="keyword">new</span> <span class="title class_">boolean</span>[<span class="number">26</span>];</span><br><span class="line">        ans++;</span><br><span class="line">    }</span><br><span class="line">    flag[str[index] - <span class="string">'a'</span>] = <span class="literal">true</span>;</span><br><span class="line">    index++;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">return</span> ans + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>返回ans+1是因为最后一个子字符串没有被记录</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/11/LeetCode%E5%88%B7%E9%A2%98/828.%E7%BB%9F%E8%AE%A1%E5%AD%90%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1002,92 +1082,6 @@ mjx-container[display="true"] + br {
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/02/LeetCode%E5%88%B7%E9%A2%98/1224.%E6%9C%80%E5%A4%A7%E7%9B%B8%E7%AD%89%E9%A2%91%E7%8E%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="樊tastic">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="樊tastic~">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/09/02/LeetCode%E5%88%B7%E9%A2%98/1224.%E6%9C%80%E5%A4%A7%E7%9B%B8%E7%AD%89%E9%A2%91%E7%8E%87/" class="post-title-link" itemprop="url">1224.最大相等频率</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-02 16:23:27" itemprop="dateCreated datePublished" datetime="2022-09-02T16:23:27+08:00">2022-09-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-18 15:22:01" itemprop="dateModified" datetime="2022-09-18T15:22:01+08:00">2022-09-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">LeetCode刷题</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1224-最大相等频率"><a href="#1224-最大相等频率" class="headerlink" title="1224.最大相等频率"></a>1224.最大相等频率</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个正整数数组nums，从该数组中找出能满足下面要求的最长前缀，并返回该前缀的长度：</p>
-<pre><code>从前缀中恰好删除一个元素后，剩下每个数字的出现次数都相同
-</code></pre>
-<p>如果删除这个元素后没有剩余元素存在，仍可认为每个数字都具有相同的出现次数（也就是0次）</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>cnt数组记录每个数的出现次数（即cnt[i]=x含义为数值i的出现次数为x次）</p>
-<p>sum来记录出现次数为某个值的数有多少个（即sum[i]=x含义为出现次数为i的数值共有x个）</p>
-<p>max来记录最大出现次数cnt[i]</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxEqualFreq</span><span class="params">(<span class="type">int</span>[] nums)</span> {</span><br><span class="line">    Arrays.fill(cnt, <span class="number">0</span>);</span><br><span class="line">    Arrays.fill(sum, <span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length, max = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> nums[i];</span><br><span class="line">        <span class="type">int</span> <span class="variable">cur</span> <span class="operator">=</span> ++cnt[num];</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> i + <span class="number">1</span>;</span><br><span class="line">        sum[cur]++;</span><br><span class="line">        sum[cur - <span class="number">1</span>]--;</span><br><span class="line">        max = Math.max(max, cur);</span><br><span class="line">        <span class="keyword">if</span> (max == <span class="number">1</span>) {</span><br><span class="line">            ans = len;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (max * sum[max] + <span class="number">1</span> == len) {</span><br><span class="line">            ans = len;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> ((max - <span class="number">1</span>) * (sum[max - <span class="number">1</span>] + <span class="number">1</span>) + <span class="number">1</span> == len) {</span><br><span class="line">            ans = len;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-<p>根据情况进行分类讨论即可</p>
-<p>所有的数字只出现了一次，则删掉随意删掉一个都可以满足要求</p>
-<p>一个数字出现了一次，其余数字都出现max次，这样删掉这个出现一次的就可以了</p>
-<p>出现max次的数只有一个，删去后就是（max-1）次，然后其余的数也是(max-1)次，这样也满足条件</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1156,14 +1150,14 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">249</span>
+          <span class="site-state-item-count">250</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
