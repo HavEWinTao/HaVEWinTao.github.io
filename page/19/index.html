@@ -345,7 +345,8 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><p>在pojo中的实体的属性名和数据库中的列名不相同时会导致无法正确读取数据</p>
+          <h1 id="mybatis">MyBatis</h1>
+<p>在pojo中的实体的属性名和数据库中的列名不相同时会导致无法正确读取数据</p>
 <p>解决办法:</p>
 <pre><code>1. 在写sql的时候对列名取别名使其和属性名相同
 
@@ -361,68 +362,67 @@ mjx-container[display="true"] + br {
 
     <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"brandResultMap"</span> <span class="attr">type</span>=<span class="string">"com.heima.pojo.Brand"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"brand_name"</span> <span class="attr">property</span>=<span class="string">"brandName"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"company_name"</span> <span class="attr">property</span>=<span class="string">"companyName"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectAll"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">    select * from tb_brand;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-    使用resultMap属性替换resultType属性，完成映射
-</code></pre>
-<h2 id="xml中传递参数"><a href="#xml中传递参数" class="headerlink" title=".xml中传递参数"></a>.xml中传递参数</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">        select * from tb_brand where id=#{id};</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>#{}:会替换为?，：为了防止sql注入<br>${}:拼接sql，会存在sql注入问题</p>
+    使用resultMap属性替换resultType属性，完成映射</code></pre>
+<h2 id="xml中传递参数">.xml中传递参数</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">        select * from tb_brand where id=#{id};</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>#{}:会替换为?，：为了防止sql注入 ${}:拼接sql，会存在sql注入问题</p>
 <p>${}在表名或列名不固定的情况下使用</p>
 <p>parameterType可以省略</p>
-<h2 id="特殊字符的处理"><a href="#特殊字符的处理" class="headerlink" title="特殊字符的处理"></a>特殊字符的处理</h2><p>需要符合xml的语法规则</p>
-<ol>
-<li><p>进行转义</p>
-</li>
-<li><p>CDATA区</p>
-</li>
+<h2 id="特殊字符的处理">特殊字符的处理</h2>
+<p>需要符合xml的语法规则</p>
+<ol type="1">
+<li><p>进行转义</p></li>
+<li><p>CDATA区</p></li>
 </ol>
-<h2 id="java中接口传递多参数"><a href="#java中接口传递多参数" class="headerlink" title=".java中接口传递多参数"></a>.java中接口传递多参数</h2><p>参数处理需要额外处理，如前后加<code>%</code></p>
-<ol>
+<h2 id="java中接口传递多参数">.java中接口传递多参数</h2>
+<p>参数处理需要额外处理，如前后加<code>%</code></p>
+<ol type="1">
 <li><p>散装参数</p>
-<p>使用注解@Param(“”)</p>
-</li>
+<p>使用注解@Param("")</p></li>
 <li><p>对象参数</p>
-<p> 参数名和实体类的属性名应该对应</p>
-</li>
+<p>参数名和实体类的属性名应该对应</p></li>
 <li><p>Map参数</p>
-<p> 参数名应该和map集合的键对应</p>
-</li>
+<p>参数名应该和map集合的键对应</p></li>
 </ol>
 <p>以上MyBatis会自动匹配参数</p>
-<h2 id="动态条件查询"><a href="#动态条件查询" class="headerlink" title="动态条件查询"></a>动态条件查询</h2><p>MyBatis提供了一些标签</p>
+<h2 id="动态条件查询">动态条件查询</h2>
+<p>MyBatis提供了一些标签</p>
 <p>SQL语句随着用户输入或外部条件变化而变化，称为动态SQL</p>
-<h3 id="多条件动态-多个条件有的有有的没有"><a href="#多条件动态-多个条件有的有有的没有" class="headerlink" title="多条件动态-多个条件有的有有的没有"></a>多条件动态-多个条件有的有有的没有</h3><p>用where if标签</p>
+<h3 id="多条件动态-多个条件有的有有的没有">多条件动态-多个条件有的有有的没有</h3>
+<p>用where if标签</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectByCondition"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">    select * from tb_brand</span><br><span class="line">    <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"status!=null"</span>&gt;</span></span><br><span class="line">            and status=#{status}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"companyName!=null and companyName!='' "</span>&gt;</span></span><br><span class="line">            and company_name like #{companyName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"brandName!=null and brandName!='' "</span>&gt;</span></span><br><span class="line">            and brand_name like #{brandName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="单条件动态查询-多个条件只有一个"><a href="#单条件动态查询-多个条件只有一个" class="headerlink" title="单条件动态查询-多个条件只有一个"></a>单条件动态查询-多个条件只有一个</h3><p>用choose when标签</p>
+<h3 id="单条件动态查询-多个条件只有一个">单条件动态查询-多个条件只有一个</h3>
+<p>用choose when标签</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectByConditionSingle"</span> <span class="attr">resultMap</span>=<span class="string">"brandResultMap"</span>&gt;</span></span><br><span class="line">    select * from tb_brand</span><br><span class="line">    where</span><br><span class="line">    <span class="tag">&lt;<span class="name">choose</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"status!=null"</span>&gt;</span></span><br><span class="line">            status=#{status}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"companyName!=null and companyName!='' "</span>&gt;</span></span><br><span class="line">            company_name like #{companyName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"brandName!=null and brandName!='' "</span>&gt;</span></span><br><span class="line">            brand_name like #{brandName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span></span><br><span class="line">            1=0</span><br><span class="line">        <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="MyBatis的事务"><a href="#MyBatis的事务" class="headerlink" title="MyBatis的事务"></a>MyBatis的事务</h2><p>设置事务自动提交</p>
+<h2 id="mybatis的事务">MyBatis的事务</h2>
+<p>设置事务自动提交</p>
 <p><code>SqlSession sqlSession = sqlSessionFactory.openSession(true);</code></p>
 <p>手动提交:<code>sqlSession.commit();</code></p>
-<h2 id="插入时主键返回"><a href="#插入时主键返回" class="headerlink" title="插入时主键返回"></a>插入时主键返回</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"add"</span> <span class="attr">useGeneratedKeys</span>=<span class="string">"true"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">    insert into tb_brand(brand_name, company_name, ordered, description, status)</span><br><span class="line">        values (#{brandName},#{companyName},#{ordered},#{description},#{status});</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="动态修改-多个条件有的修改有的不修改"><a href="#动态修改-多个条件有的修改有的不修改" class="headerlink" title="动态修改-多个条件有的修改有的不修改"></a>动态修改-多个条件有的修改有的不修改</h2><p>用set if标签</p>
+<h2 id="插入时主键返回">插入时主键返回</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"add"</span> <span class="attr">useGeneratedKeys</span>=<span class="string">"true"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">    insert into tb_brand(brand_name, company_name, ordered, description, status)</span><br><span class="line">        values (#{brandName},#{companyName},#{ordered},#{description},#{status});</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="动态修改-多个条件有的修改有的不修改">动态修改-多个条件有的修改有的不修改</h2>
+<p>用set if标签</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"update"</span>&gt;</span></span><br><span class="line">    update tb_brand</span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"brandName!=null and brandName!=''"</span>&gt;</span></span><br><span class="line">            brand_name=#{brandName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"companyName!=null and companyName!='' "</span>&gt;</span></span><br><span class="line">            company_name=#{companyName}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"ordered!=null"</span>&gt;</span></span><br><span class="line">            ordered=#{ordered}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"description!=null and description!='' "</span>&gt;</span></span><br><span class="line">            description=#{description}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"status!=null"</span>&gt;</span></span><br><span class="line">            status=#{status}</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    where id=#{id}</span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">    delete from tb_brand where id=#{id};</span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h2><p>MyBatis会将数组参数封装成一个Map集合，默认array，或者使用<code>@Param</code>注解改变map集合的默认key的名称</p>
+<h2 id="删除">删除</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span>&gt;</span></span><br><span class="line">    delete from tb_brand where id=#{id};</span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="批量删除">批量删除</h2>
+<p>MyBatis会将数组参数封装成一个Map集合，默认array，或者使用<code>@Param</code>注解改变map集合的默认key的名称</p>
 <p><code>void deleteByIds(@Param("ids")int[] ids);</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteByIds"</span>&gt;</span></span><br><span class="line">    delete from tb_brand</span><br><span class="line">    where id in</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"ids"</span> <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span></span><br><span class="line">        #{id}</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>MyBatis接口方法可以接受各种各样的参数</p>
-<p>单个参数：<br>    POJO类型:直接使用,属性名与#{}占位符名称一致就可以使用</p>
+<h2 id="参数传递">参数传递</h2>
+<p>MyBatis接口方法可以接受各种各样的参数</p>
+<p>单个参数： POJO类型:直接使用,属性名与#{}占位符名称一致就可以使用</p>
 <pre><code>Map集合:直接使用键名与#{}名一致
 Collection
 List
 Array
-其他类型:
-</code></pre>
-<p>多个参数:<br>    用<code>@Param</code>注解</p>
-<p>多个参数封装成Map，值就是参数的值，键arg0…,param1…这种类型</p>
+其他类型:</code></pre>
+<p>多个参数: 用<code>@Param</code>注解</p>
+<p>多个参数封装成Map，值就是参数的值，键arg0...,param1...这种类型</p>
 <p>MyBatis提供了ParamNameResolver类来进行参数封装</p>
-<p>arg0,param1这种可读性差，所以使用@Param进行注解，替换arg0…这些在Map中的键</p>
-<h2 id="使用注解实现CURD"><a href="#使用注解实现CURD" class="headerlink" title="使用注解实现CURD"></a>使用注解实现CURD</h2><p>@Select<br>@Insert<br>@Update<br>@Delete</p>
+<p>arg0,param1这种可读性差，所以使用@Param进行注解，替换arg0...这些在Map中的键</p>
+<h2 id="使用注解实现curd">使用注解实现CURD</h2>
+<p><span class="citation" data-cites="Select">@Select</span> <span class="citation" data-cites="Insert">@Insert</span> <span class="citation" data-cites="Update">@Update</span> <span class="citation" data-cites="Delete">@Delete</span></p>
 <p>注解完成简单功能，复杂功能通过.xml配置文件完成</p>
 
       
@@ -497,9 +497,12 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="146-LRU-缓存"><a href="#146-LRU-缓存" class="headerlink" title="146.LRU 缓存"></a>146.LRU 缓存</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>模拟一个cache的LRU(最近最少使用)的调度策略</p>
+          <h1 id="lru-缓存">146.LRU 缓存</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>模拟一个cache的LRU(最近最少使用)的调度策略</p>
 <p>其中cache的容量是capacity</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>其实体系结构操作系统课都学过LRU的原理，怎么用编程来实现呢？</p>
+<h2 id="解题思路">解题思路</h2>
+<p>其实体系结构操作系统课都学过LRU的原理，怎么用编程来实现呢？</p>
 <p>体系结构课给出的描述是：首先应该有一个栈，这个栈可以将一个元素给调到栈顶，然后还可以将超出容量的元素从另一端挤出去(应该是这样)</p>
 <p>实现方式：</p>
 <p>双向链表+Map</p>
@@ -578,18 +581,18 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="207-课程表"><a href="#207-课程表" class="headerlink" title="207.课程表"></a>207.课程表</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>就是一共有numCourses门课，然后有一些先修课程的要求，判断能够完成所有的课程学习</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>其实一共有numCourses个结点，然后先修课程的关系构成一张图</p>
+          <h1 id="课程表">207.课程表</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>就是一共有numCourses门课，然后有一些先修课程的要求，判断能够完成所有的课程学习</p>
+<h2 id="解题思路">解题思路</h2>
+<p>其实一共有numCourses个结点，然后先修课程的关系构成一张图</p>
 <p>先修课程对[0,1]表示：想要学习课程0，你需要先完成课程1，也就是有一个结点1指向0的边</p>
 <p>判断这个图中是否存在圈</p>
 <p>每个节点有三个状态</p>
-<ol>
-<li><p>未搜索：还没有搜索到这个节点</p>
-</li>
-<li><p>搜索中：我们搜索过这个节点，但还没有回溯到该节点，即该节点还没有入栈，还有相邻的节点没有搜索完成）；</p>
-</li>
-<li><p>已完成：我们搜索过并且回溯过这个节点，即该节点已经入栈，并且所有该节点的相邻节点都出现在栈的更底部的位置，满足拓扑排序的要求。</p>
-</li>
+<ol type="1">
+<li><p>未搜索：还没有搜索到这个节点</p></li>
+<li><p>搜索中：我们搜索过这个节点，但还没有回溯到该节点，即该节点还没有入栈，还有相邻的节点没有搜索完成）；</p></li>
+<li><p>已完成：我们搜索过并且回溯过这个节点，即该节点已经入栈，并且所有该节点的相邻节点都出现在栈的更底部的位置，满足拓扑排序的要求。</p></li>
 </ol>
 <p>当深度优先搜索搜索到搜索中状态的结点的时候说明该图存在环，就有了循环依赖</p>
 
@@ -665,10 +668,12 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="221-最大正方形"><a href="#221-最大正方形" class="headerlink" title="221.最大正方形"></a>221.最大正方形</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个由’0’和’1’组成的二维矩阵内，找到只包含’1’的最大正方形，并返回其面积</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>dp[i][j]表示右下角是i,j格的最大正方形边长</p>
+          <h1 id="最大正方形">221.最大正方形</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>在一个由'0'和'1'组成的二维矩阵内，找到只包含'1'的最大正方形，并返回其面积</p>
+<h2 id="解题思路">解题思路</h2>
+<p>dp[i][j]表示右下角是i,j格的最大正方形边长</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; matrix.length; i++) {</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].length; j++) {</span><br><span class="line">        <span class="keyword">if</span> (matrix[i][j] == <span class="string">'1'</span>) {</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>) {</span><br><span class="line">                dp[i][j] = <span class="number">1</span>;</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                dp[i][j] = Math.min(Math.min(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]), dp[i - <span class="number">1</span>][j - <span class="number">1</span>]) + <span class="number">1</span>;</span><br><span class="line">            }</span><br><span class="line">            ans = Math.max(ans, dp[i][j]);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
 <p>不断更新的同时记录最大边长，最后返回最大边长的平方即可</p>
 
       
@@ -743,8 +748,11 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="954-二倍数对数组"><a href="#954-二倍数对数组" class="headerlink" title="954.二倍数对数组"></a>954.二倍数对数组</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个长度为偶数的整数数组arr，只有对arr进行重组后arr[2<em>i+1]=2</em>arr[2*i]时，返回true；否则，返回false</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>肯定要先排序，然后记录每个元素的个数</p>
+          <h1 id="二倍数对数组">954.二倍数对数组</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定一个长度为偶数的整数数组arr，只有对arr进行重组后arr[2*i+1]=2*arr[2*i]时，返回true；否则，返回false</p>
+<h2 id="解题思路">解题思路</h2>
+<p>肯定要先排序，然后记录每个元素的个数</p>
 <p>直接用TreeSet就可以了，TreeMap会将key排序，并且记录每个数字的数量</p>
 <p>然后对key进行判断，key&gt;0的话就是找key*2</p>
 <p>key&lt;0的话就是先判断key是否能被2整除，再找key/2</p>
@@ -822,11 +830,16 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="287-寻找重复数"><a href="#287-寻找重复数" class="headerlink" title="287.寻找重复数"></a>287.寻找重复数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个包含n+1个整数的数组nums，其数字都在[1,n]范围内（包括1和n），假设 nums 只有 一个重复的整数，返回这个重复的数。</p>
+          <h1 id="寻找重复数">287.寻找重复数</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定一个包含n+1个整数的数组nums，其数字都在[1,n]范围内（包括1和n），假设
+nums 只有 一个重复的整数，返回这个重复的数。</p>
 <p>要求:不修改原数组,额外空间O(1),时间复杂度O(n)</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>做一个i到nums[i]的映射</p>
-<p>如[1,3,4,2,2]就是0–&gt;1–&gt;3–&gt;2–&gt;4–&gt;2<br>将(i,nums[i])抽象成了一个链表,最后的4–&gt;2就构成了一个环</p>
-<p>这个题就和<a href="/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II/index.html">142.环形链表II</a>一模一样了</p>
+<h2 id="解题思路">解题思路</h2>
+<p>做一个i到nums[i]的映射</p>
+<p>如[1,3,4,2,2]就是0--&gt;1--&gt;3--&gt;2--&gt;4--&gt;2
+将(i,nums[i])抽象成了一个链表,最后的4--&gt;2就构成了一个环</p>
+<p>这个题就和<a href="/2022/03/31/LeetCode刷题/142.环形链表II/index.html">142.环形链表II</a>一模一样了</p>
 
       
     </div>
@@ -900,9 +913,12 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="200-岛屿数量"><a href="#200-岛屿数量" class="headerlink" title="200.岛屿数量"></a>200.岛屿数量</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给一个char[][]，0表示水，1表示陆地</p>
+          <h1 id="岛屿数量">200.岛屿数量</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给一个char[][]，0表示水，1表示陆地</p>
 <p>岛屿由陆地水平竖直方向相连，求岛屿的数量</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>当碰到陆地时进行DFS，把这块陆地置为0</p>
+<h2 id="解题思路">解题思路</h2>
+<p>当碰到陆地时进行DFS，把这块陆地置为0</p>
 <p>然后就可以得到陆地的数量了</p>
 
       
@@ -977,10 +993,14 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="198-打家劫舍"><a href="#198-打家劫舍" class="headerlink" title="198.打家劫舍"></a>198.打家劫舍</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。<br>如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>dp[i][0]表示不拿第i个屋，dp[i][1]表示拿第i个屋</p>
+          <h1 id="打家劫舍">198.打家劫舍</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你
+不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。
+如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<h2 id="解题思路">解题思路</h2>
+<p>dp[i][0]表示不拿第i个屋，dp[i][1]表示拿第i个屋</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">0</span>][<span class="number">1</span>] = nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; nums.length; i++) {</span><br><span class="line">    dp[i][<span class="number">0</span>] = Math.max(dp[i - <span class="number">1</span>][<span class="number">0</span>], dp[i - <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line">    dp[i][<span class="number">1</span>] = dp[i - <span class="number">1</span>][<span class="number">0</span>] + nums[i];</span><br><span class="line">}</span><br><span class="line"><span class="keyword">return</span> Math.max(dp[nums.length - <span class="number">1</span>][<span class="number">0</span>], dp[nums.length - <span class="number">1</span>][<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
-
 <p>不偷i屋，那么dp[i][0]应该是偷或者不偷i-1屋的最大值</p>
 <p>偷i屋，那么dp[i][1]应该是不偷i-1屋的值+该屋的值</p>
 
@@ -1056,8 +1076,11 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="142-环形链表II"><a href="#142-环形链表II" class="headerlink" title="142.环形链表II"></a>142.环形链表II</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表的头节点head，返回链表开始入环的第一个节点。如果链表无环，则返回null。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><a href="/2022/03/22/LeetCode%E5%88%B7%E9%A2%98/141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/index.html">141.环形链表</a>是判断链表是否存在环，该题是找到环的入口</p>
+          <h1 id="环形链表ii">142.环形链表II</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定一个链表的头节点head，返回链表开始入环的第一个节点。如果链表无环，则返回null。</p>
+<h2 id="解题思路">解题思路</h2>
+<p><a href="/2022/03/22/LeetCode刷题/141.环形链表/index.html">141.环形链表</a>是判断链表是否存在环，该题是找到环的入口</p>
 <p>如果不存在环，那么快指针一定会走到null</p>
 <p>如果存在环，设链表的左侧非环长度是m，环形长度是c</p>
 <p>快指针走了2n个结点，慢指针走了n个结点，那么慢指针就在环内走了n-m个结点</p>
@@ -1135,11 +1158,14 @@ Array
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1606-找到处理最多请求的服务器"><a href="#1606-找到处理最多请求的服务器" class="headerlink" title="1606.找到处理最多请求的服务器"></a>1606.找到处理最多请求的服务器</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>k个服务器，一个服务器同一时间只能处理一个请求</p>
+          <h1 id="找到处理最多请求的服务器">1606.找到处理最多请求的服务器</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>k个服务器，一个服务器同一时间只能处理一个请求</p>
 <p>一个arrive[]请求到达时间数组，一个load[]请求工作时间数组</p>
 <p>第i个请求优先分配给第i%k个服务器，如果该服务器繁忙则继续查找下一个服务器，这些服务器视作一个环</p>
 <p>返回最繁忙的服务器列表</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>用一个数组记录每个服务器的执行任务的数量</p>
+<h2 id="解题思路">解题思路</h2>
+<p>用一个数组记录每个服务器的执行任务的数量</p>
 <p>用一个TreeSet来记录可用的服务器isAvailable</p>
 <p>用一个优先队列isBusy记录任务完成时间以及这个服务器序号，按完成时间升序排序</p>
 <p>开始模拟任务达到的过程</p>
@@ -1147,8 +1173,7 @@ Array
 2. 如果有已经执行完任务的服务器将他从isBusy中弹出并且加入到isAvailable中去
 3. 如果isAvailable为空这个任务执行不了
 4. 否则按规则找到可以执行的服务器
-5. 更新isAvailable和isBusy
-</code></pre>
+5. 更新isAvailable和isBusy</code></pre>
 <p>最后遍历每个服务器执行任务的数量并得出答案</p>
 
       

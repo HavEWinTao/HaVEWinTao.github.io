@@ -345,9 +345,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="398-随机数索引"><a href="#398-随机数索引" class="headerlink" title="398.随机数索引"></a>398.随机数索引</h1><h2 id="随机数索引"><a href="#随机数索引" class="headerlink" title="随机数索引"></a>随机数索引</h2><p>一个可能含有重复元素的整数数组nums，随机输出给定的目标数字target的索引</p>
+          <h1 id="随机数索引">398.随机数索引</h1>
+<h2 id="随机数索引-1">随机数索引</h2>
+<p>一个可能含有重复元素的整数数组nums，随机输出给定的目标数字target的索引</p>
 <p>假设给定的数字一定存在于数组中</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>用一个<code>Map&lt;Integer, Set&lt;Integer&gt;&gt; index;</code>保存数字及其对对应的索引们，然后去数时根据set的size取出随机一个数，这个下标就是答案</p>
+<h2 id="解题思路">解题思路</h2>
+<p>用一个<code>Map&lt;Integer, Set&lt;Integer&gt;&gt; index;</code>保存数字及其对对应的索引们，然后去数时根据set的size取出随机一个数，这个下标就是答案</p>
 
       
     </div>
@@ -421,11 +424,14 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="6043-统计包含每个点的矩形数目"><a href="#6043-统计包含每个点的矩形数目" class="headerlink" title="6043.统计包含每个点的矩形数目"></a>6043.统计包含每个点的矩形数目</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个二维整数数组rectangles，其中rectangles[i]=[li,hi]表示第i个矩形长为li高为hi。一个二维整数数组points，其中points[j]=[xj,yj]是坐标为(xj,yj)的一个点。</p>
+          <h1 id="统计包含每个点的矩形数目">6043.统计包含每个点的矩形数目</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个二维整数数组rectangles，其中rectangles[i]=[li,hi]表示第i个矩形长为li高为hi。一个二维整数数组points，其中points[j]=[xj,yj]是坐标为(xj,yj)的一个点。</p>
 <p>第i个矩形的左下角在(0,0)处，右上角在(li,hi)。</p>
 <p>返回一个整数数组count，长度为points.length，其中count[j]是包含第j个点的矩形数目</p>
 <p>如果一个点刚好在矩形的边上，这个点也被视为被矩形包含。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>最开始暴力了一遍，发现不行，TLE</p>
+<h2 id="解题思路">解题思路</h2>
+<p>最开始暴力了一遍，发现不行，TLE</p>
 <p>然后想到了排序，将矩形排序，然后二分判断</p>
 <p>思路对了，但是实现方式不对，偏差很大</p>
 <p>我想的是将x排序如果相等再排y然后找到每个点的临界index作为ans[i]</p>
@@ -503,26 +509,24 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="587-安装栅栏"><a href="#587-安装栅栏" class="headerlink" title="587.安装栅栏"></a>587.安装栅栏</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在二维的花园中，有(x,y)一些树，用最短的绳子围起所有的树</p>
+          <h1 id="安装栅栏">587.安装栅栏</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>在二维的花园中，有(x,y)一些树，用最短的绳子围起所有的树</p>
 <p>找到所有栅栏边界的树的坐标</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>人傻了，我是谁，我在哪</p>
+<h2 id="解题思路">解题思路</h2>
+<p>人傻了，我是谁，我在哪</p>
 <p>将这个凸包分为上凸壳和下凸壳</p>
 <p>对x进行从小到大排序，如果x相等则对y进行从小到大排序</p>
 <p>用一个栈维护所有的边界点，先从先往后遍历构建上凸壳，再从后往前遍历构建下凸壳</p>
 <p>怎么来维护这个栈呢？根据两条边的位置关系来判断</p>
 <p>我裂开了，写了两个多小时，发现还是自己写不出来，各种边界情况错误，索性直接用了现成的</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//subtraction(b,a)求的是向量ab  subtraction(c,a)求的是向量ac</span></span><br><span class="line"><span class="type">int</span>[] subtraction(<span class="type">int</span>[] a, <span class="type">int</span>[] b) { <span class="comment">// 向量相减</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]{a[<span class="number">0</span>] - b[<span class="number">0</span>], a[<span class="number">1</span>] - b[<span class="number">1</span>]};</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//叉乘！！！！！</span></span><br><span class="line"><span class="comment">//叉乘公式定义获得到的值k就是k=a.x*b.y-b.x*a.y</span></span><br><span class="line"><span class="comment">//如果k&gt;0时，那么a正旋转到b的角度为&lt;180°，如果k&lt;0，那么a正旋转到b的角度为&gt;180°,如果k=0 那么a，b向量平行。</span></span><br><span class="line"><span class="type">double</span> <span class="title function_">cross</span><span class="params">(<span class="type">int</span>[] a, <span class="type">int</span>[] b)</span> { <span class="comment">// 叉乘</span></span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">0</span>] * b[<span class="number">1</span>] - a[<span class="number">1</span>] * b[<span class="number">0</span>];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过平面两点向量叉乘判断当前ac向量是在顺时针方向还是逆时针方向</span></span><br><span class="line"><span class="type">double</span> <span class="title function_">getArea</span><span class="params">(<span class="type">int</span>[] a, <span class="type">int</span>[] b, <span class="type">int</span>[] c)</span> { <span class="comment">//向量ab转为向量ac过程中扫过的面积</span></span><br><span class="line">    <span class="keyword">return</span> cross(subtraction(b, a), subtraction(c, a));</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
 <p>需要注意的点：</p>
-<ol>
-<li><p>维护栈的元素时不是用的if,而是用的while，需要多次判断当前点和之前点</p>
-</li>
-<li><p>第一部分的上凸壳需要用visit来标注，如果是上凸壳在构建下凸壳时不能删除，也不能加入到下凸壳中</p>
-</li>
-<li><p>构建上凸壳时不能给起点标记visit不然会导致构建下凸壳时无法闭合</p>
-</li>
-<li><p>上凸壳栈元素&gt;2时才能开始维护，栈中元素数量大于上凸壳点数时才维护下凸壳</p>
-</li>
+<ol type="1">
+<li><p>维护栈的元素时不是用的if,而是用的while，需要多次判断当前点和之前点</p></li>
+<li><p>第一部分的上凸壳需要用visit来标注，如果是上凸壳在构建下凸壳时不能删除，也不能加入到下凸壳中</p></li>
+<li><p>构建上凸壳时不能给起点标记visit不然会导致构建下凸壳时无法闭合</p></li>
+<li><p>上凸壳栈元素&gt;2时才能开始维护，栈中元素数量大于上凸壳点数时才维护下凸壳</p></li>
 </ol>
 
       
@@ -597,19 +601,20 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="388-文件的最长绝对路径"><a href="#388-文件的最长绝对路径" class="headerlink" title="388.文件的最长绝对路径"></a>388.文件的最长绝对路径</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2>
+          <h1 id="文件的最长绝对路径">388.文件的最长绝对路径</h1>
+<h2 id="题目描述">题目描述</h2>
 
-<p>文件系统中的每个文件和文件夹都有一个唯一的绝对路径，所有路径用’/‘连接</p>
+<p>文件系统中的每个文件和文件夹都有一个唯一的绝对路径，所有路径用'/'连接</p>
 <p>给定一个以上述格式表示文件系统的字符串input，返回文件系统中指向<strong>文件</strong>的最长绝对路径的长度</p>
 <p>如果系统中没有文件，返回0</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>需要建立一个树状结构</p>
+<h2 id="解题思路">解题思路</h2>
+<p>需要建立一个树状结构</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TreeNode</span> {</span><br><span class="line">    <span class="type">boolean</span> isDirectionary;</span><br><span class="line">    Set&lt;TreeNode&gt; elements;</span><br><span class="line">    String path;</span><br><span class="line">    <span class="type">int</span> rank;</span><br><span class="line"></span><br><span class="line">    TreeNode() {</span><br><span class="line">        elements = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
 <p>需要判断这个结点是不是文件夹，还是文件，其次需要保存当前节点的所有子节点，rank是路径等级，path是当前节点名</p>
 <p>想求最长路径呢，其实就是个DFS的过程，但是显然本题不需要建立完整的树形结构</p>
 <p>用一个栈，栈顶是当前的路径，然后不断的向里面加该文件夹的文件和文件夹，文件夹入栈</p>
 <p>其中需要涉及到回溯的问题，比如不断更深层的文件夹查找，查找到底的话会返回上一级</p>
-<p>其中根据’\t’的数量来判断当前文件的层级，这个层级在回溯时需要用到，回溯就是弹出栈顶的元素</p>
+<p>其中根据'的数量来判断当前文件的层级，这个层级在回溯时需要用到，回溯就是弹出栈顶的元素</p>
 <p>遇到文件就求当前路径长度并和ans对比，最后返回ans</p>
 
       
@@ -684,9 +689,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="821-字符的最短距离"><a href="#821-字符的最短距离" class="headerlink" title="821.字符的最短距离"></a>821.字符的最短距离</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个字符串s和一个字符c，且c是s中出现过的字符</p>
+          <h1 id="字符的最短距离">821.字符的最短距离</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个字符串s和一个字符c，且c是s中出现过的字符</p>
 <p>返回一个整数数组answer，其中answer.length==s.length且answer[i]是s中从下标i到离它最近的字符c的距离</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>两遍扫描，从前向后一遍，从后向前一遍</p>
+<h2 id="解题思路">解题思路</h2>
+<p>两遍扫描，从前向后一遍，从后向前一遍</p>
 <p>然后更新ans取min</p>
 
       
@@ -761,8 +769,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="spring-mvc"><a href="#spring-mvc" class="headerlink" title="spring-mvc"></a>spring-mvc</h1><h2 id="错误汇总"><a href="#错误汇总" class="headerlink" title="错误汇总"></a>错误汇总</h2><p>Caused by: java.lang.IllegalArgumentException: 找到多个名为spring_web的片段。这是不合法的相对排序。有关详细信息</p>
-<p>产生原因的话有：<br>    依赖冲突，解决冲突就行,spring的web包和webmvc包冲突，webmvc中包含了这个web的jar</p>
+          <h1 id="spring-mvc">spring-mvc</h1>
+<h2 id="错误汇总">错误汇总</h2>
+<p>Caused by: java.lang.IllegalArgumentException:
+找到多个名为spring_web的片段。这是不合法的相对排序。有关详细信息</p>
+<p>产生原因的话有：
+依赖冲突，解决冲突就行,spring的web包和webmvc包冲突，webmvc中包含了这个web的jar</p>
 <p>将web这个包在pom里的scope设置为provided即可</p>
 
       
@@ -837,10 +849,14 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="6072-转角路径的乘积中最多能有几个尾随零"><a href="#6072-转角路径的乘积中最多能有几个尾随零" class="headerlink" title="6072.转角路径的乘积中最多能有几个尾随零"></a>6072.转角路径的乘积中最多能有几个尾随零</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这个题即使先将给定的数组按2和5因子过滤一遍，比如13就变成1，14就变成2这样，然后再去求乘法，也会溢出</p>
-<p>转角路径有六种情况：<br>    1. 横着的<br>    2. 竖着的<br>    3. 左到右，然后向上<br>    4. 左到右，然后向下<br>    5. 右到左，然后向上<br>    6. 右到左，然后向下</p>
+          <h1 id="转角路径的乘积中最多能有几个尾随零">6072.转角路径的乘积中最多能有几个尾随零</h1>
+<h2 id="题目描述">题目描述</h2>
+<h2 id="解题思路">解题思路</h2>
+<p>这个题即使先将给定的数组按2和5因子过滤一遍，比如13就变成1，14就变成2这样，然后再去求乘法，也会溢出</p>
+<p>转角路径有六种情况： 1. 横着的 2. 竖着的 3. 左到右，然后向上 4.
+左到右，然后向下 5. 右到左，然后向上 6. 右到左，然后向下</p>
 <p>因为是求尾随0的个数，所以直接将整排整列乘起来就行了，因为多乘一个数也不会影响结果</p>
-<p>借鉴<a href="/2022/04/12/LeetCode%E5%88%B7%E9%A2%98/238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E5%A4%96%E6%95%B0%E7%BB%84%E7%9A%84%E4%B9%98%E7%A7%AF/index.html">238.除自身以外数组的乘积</a>的思路</p>
+<p>借鉴<a href="/2022/04/12/LeetCode刷题/238.除自身以外数组的乘积/index.html">238.除自身以外数组的乘积</a>的思路</p>
 <p>需要先构建从左到右，从右到左，从上到下，从下到上的乘积</p>
 <p>对于(i,j),想求他的转角路径，比如左到右然后向上，就是<code>left2right[i][j]*down2up[i][j]*grid[i][j]</code></p>
 <p>然后求最大的尾随零的个数</p>
@@ -849,8 +865,7 @@ mjx-container[display="true"] + br {
 
 ```Math.min(down2up[i][j][1] + left2right[i][j][1] + facter[i][j][1],down2up[i][j][0] + left2right[i][j][0] + facter[i][j][0]);```
 
-然后求6种转角路径的最多尾随0的个数
-</code></pre>
+然后求6种转角路径的最多尾随0的个数</code></pre>
 <p>时间复杂度为O(mn)</p>
 
       
@@ -925,20 +940,20 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="72-编辑距离"><a href="#72-编辑距离" class="headerlink" title="72.编辑距离"></a>72.编辑距离</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>两个单词word1和word2，返回将word1转换成word2所使用的最少操作数</p>
+          <h1 id="编辑距离">72.编辑距离</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>两个单词word1和word2，返回将word1转换成word2所使用的最少操作数</p>
 <p>对一个单词进行如下三种操作：</p>
 <pre><code>* 插入一个字符
 * 删除一个字符
-* 替换一个字符
-</code></pre>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>所有的操作相当于只有</p>
+* 替换一个字符</code></pre>
+<h2 id="解题思路">解题思路</h2>
+<p>所有的操作相当于只有</p>
 <pre><code>1. 在word1中插入一个字符
 2. 在word2中插入一个字符
-3. 修改word1的一个字符
-</code></pre>
+3. 修改word1的一个字符</code></pre>
 <p>dp[i][j]表示word1的前i个字母和word2的前j个字母之间的编辑距离</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> dp[i - <span class="number">1</span>][j] + <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">down</span> <span class="operator">=</span> dp[i][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">leftDown</span> <span class="operator">=</span> dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line"><span class="keyword">if</span> (word1.charAt(i - <span class="number">1</span>) != word2.charAt(j - <span class="number">1</span>)) {</span><br><span class="line">    leftDown++;</span><br><span class="line">}</span><br><span class="line">dp[i][j] = Math.min(left, Math.min(down, leftDown));</span><br></pre></td></tr></table></figure>
-
 <p>如果两个单词当前的字母相同，就不用增加步数</p>
 
       
@@ -1013,10 +1028,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="42-接雨水"><a href="#42-接雨水" class="headerlink" title="42.接雨水"></a>42.接雨水</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定n个非负整数表示每个宽度为1的柱子的高度图，计算下雨之后能接多少雨水</p>
+          <h1 id="接雨水">42.接雨水</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定n个非负整数表示每个宽度为1的柱子的高度图，计算下雨之后能接多少雨水</p>
 
-
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>找到每一个柱子左面的最大高度和右面的最大高度</p>
+<h2 id="解题思路">解题思路</h2>
+<p>找到每一个柱子左面的最大高度和右面的最大高度</p>
 <p>雨水只能下到min(left,right)，最高只能下到短板处，然后再减去当前的高度</p>
 <p>求和即可</p>
 
@@ -1092,14 +1109,16 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="337-打家劫舍III"><a href="#337-打家劫舍III" class="headerlink" title="337.打家劫舍III"></a>337.打家劫舍III</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>与<a href="/2022/03/31/LeetCode%E5%88%B7%E9%A2%98/198.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/index.html">198.打家劫舍</a>类似</p>
+          <h1 id="打家劫舍iii">337.打家劫舍III</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>与<a href="/2022/03/31/LeetCode刷题/198.打家劫舍/index.html">198.打家劫舍</a>类似</p>
 <p>行窃地区是树型，这个地区只有一个入口root</p>
 <p>两个直接相连的房子在同一天晚上被打劫 ，房屋将自动报警</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>最开始我想的是和打家劫舍一样的dp思路，从root开始DFS搜索子节点，父节点被偷则子节点就不能被偷，但是测试后发现是错的，因为树有两个分支</p>
+<h2 id="解题思路">解题思路</h2>
+<p>最开始我想的是和打家劫舍一样的dp思路，从root开始DFS搜索子节点，父节点被偷则子节点就不能被偷，但是测试后发现是错的，因为树有两个分支</p>
 <p>所以应该从叶子结点向上搜索</p>
 <p>用一个map来保存结点和结点的目标值</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (root.left != <span class="literal">null</span> &amp;&amp; root.right != <span class="literal">null</span>) {</span><br><span class="line">    Integer[] right = dp.get(root.right);</span><br><span class="line">    Integer[] left = dp.get(root.left);</span><br><span class="line">    temp[<span class="number">0</span>] = Math.max(left[<span class="number">0</span>], left[<span class="number">1</span>]) + Math.max(right[<span class="number">0</span>], right[<span class="number">1</span>]);</span><br><span class="line">    temp[<span class="number">1</span>] = left[<span class="number">0</span>] + right[<span class="number">0</span>] + root.val;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
 <p>其余类型的结点与之类似</p>
 
       

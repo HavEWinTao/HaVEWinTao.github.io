@@ -345,9 +345,10 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h1><h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><p>用正则表达式替换</p>
+          <h1 id="测试用例">测试用例</h1>
+<h2 id="二维数组">二维数组</h2>
+<p>用正则表达式替换</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\[(-?[0-9]*),(-?[0-9]*)\]</span><br><span class="line">\{$1,$2\}</span><br></pre></td></tr></table></figure>
-
 <p>好耶</p>
 
       
@@ -422,15 +423,14 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Jupyter"><a href="#Jupyter" class="headerlink" title="Jupyter"></a>Jupyter</h1><hr>
-
+          <h1 id="jupyter">Jupyter</h1>
+<hr>
 <p>启动jupyter没有conda环境的内核</p>
 <p>去这个文件夹中加</p>
 <p><code>C:\Users\ZSins7588\AppData\Roaming\jupyter\kernels\</code></p>
 <p>如加pytorch-gat</p>
 <p>kernel.json</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br><span class="line"> <span class="attr">"argv"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">  <span class="string">"D:\\Software\\anaconda\\python.exe"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">"-m"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">"ipykernel_launcher"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">"-f"</span><span class="punctuation">,</span></span><br><span class="line">  <span class="string">"{connection_file}"</span></span><br><span class="line"> <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"> <span class="attr">"display_name"</span><span class="punctuation">:</span> <span class="string">"gat"</span><span class="punctuation">,</span></span><br><span class="line"> <span class="attr">"language"</span><span class="punctuation">:</span> <span class="string">"python"</span></span><br><span class="line"><span class="punctuation">}</span></span><br></pre></td></tr></table></figure>
-
 <p>也可以使用命令自己生成</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name pytorch-gat --display-name "gat"</span><br></pre></td></tr></table></figure>
 
@@ -506,15 +506,17 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="942-增减字符串匹配"><a href="#942-增减字符串匹配" class="headerlink" title="942.增减字符串匹配"></a>942.增减字符串匹配</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>由范围[0,n]内所有整数组成的n+1个整数的排列序列可以表示为长度为n的字符串s，其中:</p>
+          <h1 id="增减字符串匹配">942.增减字符串匹配</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>由范围[0,n]内所有整数组成的n+1个整数的排列序列可以表示为长度为n的字符串s，其中:</p>
 <pre><code>如果 perm[i] &lt; perm[i + 1] ，那么 s[i] == 'I' 
-如果 perm[i] &gt; perm[i + 1] ，那么 s[i] == 'D' 
-</code></pre>
+如果 perm[i] &gt; perm[i + 1] ，那么 s[i] == 'D' </code></pre>
 <p>给定一个字符串s，重构排列perm并返回它。如果有多个有效排列perm，则返回其中任何一个。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>贪心：</p>
+<h2 id="解题思路">解题思路</h2>
+<p>贪心：</p>
 <p>min=0，max=n</p>
-<p>s[i]==’I’时，就直接令perm[i]=min，同时min++</p>
-<p>s[i]==’D’时，就直接令perm[i]=max，同时max–</p>
+<p>s[i]=='I'时，就直接令perm[i]=min，同时min++</p>
+<p>s[i]=='D'时，就直接令perm[i]=max，同时max--</p>
 <p>最后给perm[n]赋值，并返回perm</p>
 
       
@@ -589,10 +591,13 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="442-数组中重复的数据"><a href="#442-数组中重复的数据" class="headerlink" title="442.数组中重复的数据"></a>442.数组中重复的数据</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个长度为n的整数数组nums，其中nums的所有整数都在范围[1,n]内，且每个整数出现一次或两次</p>
+          <h1 id="数组中重复的数据">442.数组中重复的数据</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个长度为n的整数数组nums，其中nums的所有整数都在范围[1,n]内，且每个整数出现一次或两次</p>
 <p>找出所有出现两次的整数，并以数组形式返回</p>
 <p>要求：时间复杂度为 O(n) 且仅使用常量额外空间的算法解决此问题。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>因为长度为n，且数据范围是[1,n]，用桶的思想，将nums[i]放到nums[i]-1的下标处，其他数字无法重复放置，这样就可以判断出是否重复了。</p>
+<h2 id="解题思路">解题思路</h2>
+<p>因为长度为n，且数据范围是[1,n]，用桶的思想，将nums[i]放到nums[i]-1的下标处，其他数字无法重复放置，这样就可以判断出是否重复了。</p>
 <p>看题解发现这个思路叫原地hash：hash(value)=value−1</p>
 
       
@@ -667,15 +672,18 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="433-最小基因变化"><a href="#433-最小基因变化" class="headerlink" title="433.最小基因变化"></a>433.最小基因变化</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>基因序列可以表示为一条由8个字符组成的字符串，其中每个字符都是’A’、’C’、’G’和’T’之一</p>
+          <h1 id="最小基因变化">433.最小基因变化</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>基因序列可以表示为一条由8个字符组成的字符串，其中每个字符都是'A'、'C'、'G'和'T'之一</p>
 <p>假设我们需要调查从基因序列start变为end所发生的基因变化。一次基因变化就意味着这个基因序列中的一个字符发生了变化</p>
-<pre><code>例如，"AACCGGTT" --&gt; "AACCGGTA"就是一次基因变化
-</code></pre>
+<pre><code>例如，"AACCGGTT" --&gt; "AACCGGTA"就是一次基因变化</code></pre>
 <p>另有一个基因库bank记录了所有有效的基因变化，只有基因库中的基因才是有效的基因序列</p>
 <p>给你两个基因序列start和end，以及一个基因库bank，找出并返回能够使start变化为end所需的最少变化次数</p>
 <p>如果无法完成此基因变化，返回-1</p>
-<p>注意：起始基因序列 start 默认是有效的，但是它并不一定会出现在基因库中。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>如果start不在bank里，将其放入bank，如果end不在bank里，返回-1</p>
+<p>注意：起始基因序列 start
+默认是有效的，但是它并不一定会出现在基因库中。</p>
+<h2 id="解题思路">解题思路</h2>
+<p>如果start不在bank里，将其放入bank，如果end不在bank里，返回-1</p>
 <p>根据bank的内容构建图，如果两个染色体的基因相差位数为1，这两个染色体就存在一条边</p>
 <p>从start开始BFS，直到找到end，如果找不到返回-1。找到了就返回路径</p>
 
@@ -751,17 +759,17 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1823-找出游戏的获胜者"><a href="#1823-找出游戏的获胜者" class="headerlink" title="1823.找出游戏的获胜者"></a>1823.找出游戏的获胜者</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>约瑟夫问题</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
-<li><p>常规的循环链表，时间复杂度为O(nk)</p>
-</li>
+          <h1 id="找出游戏的获胜者">1823.找出游戏的获胜者</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>约瑟夫问题</p>
+<h2 id="解题思路">解题思路</h2>
+<ol type="1">
+<li><p>常规的循环链表，时间复杂度为O(nk)</p></li>
 <li><p>数学的方法，递归</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findTheWinner</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> k)</span> {</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> (k + findTheWinner(n - <span class="number">1</span>, k) - <span class="number">1</span>) % n + <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-<p> 时间复杂度O(n)</p>
-<p> k是当前的位置，去掉这个人</p>
-<p> 然后把下一个人的位置当做1</p>
-</li>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findTheWinner</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> k)</span> {</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> (k + findTheWinner(n - <span class="number">1</span>, k) - <span class="number">1</span>) % n + <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>时间复杂度O(n)</p>
+<p>k是当前的位置，去掉这个人</p>
+<p>然后把下一个人的位置当做1</p></li>
 </ol>
 
       
@@ -836,7 +844,8 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1720-解码异或后的数组"><a href="#1720-解码异或后的数组" class="headerlink" title="1720.解码异或后的数组"></a>1720.解码异或后的数组</h1><p>主要是了解一下异或的性质</p>
+          <h1 id="解码异或后的数组">1720.解码异或后的数组</h1>
+<p>主要是了解一下异或的性质</p>
 <p>异或自身奇数次等于自身</p>
 <p>相同数值异或，结果为0</p>
 <p>任意数值与0进行异或，结果为数值本身</p>
@@ -916,9 +925,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1447-最简分数"><a href="#1447-最简分数" class="headerlink" title="1447.最简分数"></a>1447.最简分数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个整数n，返回所有0到1之间（不包括0和1）满足分母小于等于n的最简分数</p>
+          <h1 id="最简分数">1447.最简分数</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个整数n，返回所有0到1之间（不包括0和1）满足分母小于等于n的最简分数</p>
 <p>分数可以以任意顺序返回</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>只能暴力，和质数没啥关系</p>
+<h2 id="解题思路">解题思路</h2>
+<p>只能暴力，和质数没啥关系</p>
 <p>复习一下辗转相除法求最大公约数</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="type">int</span> <span class="title function_">gcd</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span> {</span><br><span class="line">    <span class="keyword">if</span> (j == <span class="number">0</span>) {</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> gcd(j, i % j);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
@@ -994,9 +1006,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="713-乘积小于K的子数组"><a href="#713-乘积小于K的子数组" class="headerlink" title="713.乘积小于K的子数组"></a>713.乘积小于K的子数组</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个整数数组nums和一个整数k</p>
+          <h1 id="乘积小于k的子数组">713.乘积小于K的子数组</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个整数数组nums和一个整数k</p>
 <p>返回子数组内所有元素的乘积严格小于k的连续子数组的数目</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>双指针</p>
+<h2 id="解题思路">解题思路</h2>
+<p>双指针</p>
 <p>子数组的下标以j结尾的，从i到j的子数组数目为j-i+1</p>
 <p>然后维护i,j即可</p>
 
@@ -1072,12 +1087,16 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="6053-统计网格图中没有被保卫的格子数"><a href="#6053-统计网格图中没有被保卫的格子数" class="headerlink" title="6053.统计网格图中没有被保卫的格子数"></a>6053.统计网格图中没有被保卫的格子数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>两个整数m和n表示一个下标从0开始的<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="6.11ex" height="1.136ex" role="img" focusable="false" viewBox="0 -491 2700.4 502"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1100.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(2100.4,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>网格图</p>
+          <h1 id="统计网格图中没有被保卫的格子数">6053.统计网格图中没有被保卫的格子数</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>两个整数m和n表示一个下标从0开始的<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="6.11ex" height="1.136ex" role="img" focusable="false" viewBox="0 -491 2700.4 502"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1100.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(2100.4,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container></span>网格图</p>
 <p>两个二维整数数组guards和walls，其中guards[i]=[rowi,coli]且walls[j]=[rowj,colj]，分别表示第i 个警卫和第j座墙所在的位置</p>
-<p>一个警卫能看到4个坐标轴方向（即东、南、西、北）的 所有格子，除非他们被一座墙或者另外一个警卫挡住了视线。</p>
+<p>一个警卫能看到4个坐标轴方向（即东、南、西、北）的
+所有格子，除非他们被一座墙或者另外一个警卫挡住了视线。</p>
 <p>如果一个格子能被至少一个警卫看到，那么我们说这个格子被保卫了。</p>
 <p>返回空格子中，有多少个格子是没被保卫的</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>看见一个纯暴力的时间100%，为什么我的时间比他的长呢</p>
+<h2 id="解题思路">解题思路</h2>
+<p>看见一个纯暴力的时间100%，为什么我的时间比他的长呢</p>
 <p>因为我将guards和walls合并了，然后分别按x和y的坐标排序一次，当时感觉这样会优化，但好像是没有必要的，因为都是对整个地图遍历一遍</p>
 
       

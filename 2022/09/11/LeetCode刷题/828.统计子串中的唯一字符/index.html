@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="828.统计子串中的唯一字符题目描述定义了一个函数countUniqueChars(s) 来统计字符串 s 中的唯一字符，并返回唯一字符的个数 例如：s &#x3D; “LEETCODE” ，则其中 “L”, “T”,”C”,”O”,”D” 都是唯一字符，因为它们只出现一次，所以 countUniqueChars(s) &#x3D; 5 。 本题将会给你一个字符串s，我们需要返回countUniqueChars(t)">
+  <meta name="description" content="828.统计子串中的唯一字符 题目描述 定义了一个函数countUniqueChars(s) 来统计字符串 s 中的唯一字符，并返回唯一字符的个数 例如：s &#x3D; &quot;LEETCODE&quot; ，则其中 &quot;L&quot;, &quot;T&quot;,&quot;C&quot;,&quot;O&quot;,&quot;D&quot; 都是唯一字符，因为它们只出现一次，所以 countUniqueChars(s) &#x3D; 5 。 本题将会给你一个字符串s，我们需要返回countUnique">
 <meta property="og:type" content="article">
 <meta property="og:title" content="828.统计子串中的唯一字符">
 <meta property="og:url" content="http://example.com/2022/09/11/LeetCode%E5%88%B7%E9%A2%98/828.%E7%BB%9F%E8%AE%A1%E5%AD%90%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="828.统计子串中的唯一字符题目描述定义了一个函数countUniqueChars(s) 来统计字符串 s 中的唯一字符，并返回唯一字符的个数 例如：s &#x3D; “LEETCODE” ，则其中 “L”, “T”,”C”,”O”,”D” 都是唯一字符，因为它们只出现一次，所以 countUniqueChars(s) &#x3D; 5 。 本题将会给你一个字符串s，我们需要返回countUniqueChars(t)">
+<meta property="og:description" content="828.统计子串中的唯一字符 题目描述 定义了一个函数countUniqueChars(s) 来统计字符串 s 中的唯一字符，并返回唯一字符的个数 例如：s &#x3D; &quot;LEETCODE&quot; ，则其中 &quot;L&quot;, &quot;T&quot;,&quot;C&quot;,&quot;O&quot;,&quot;D&quot; 都是唯一字符，因为它们只出现一次，所以 countUniqueChars(s) &#x3D; 5 。 本题将会给你一个字符串s，我们需要返回countUnique">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-11T06:59:27.000Z">
 <meta property="article:modified_time" content="2022-09-18T07:22:02.014Z">
@@ -349,11 +349,18 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="828-统计子串中的唯一字符"><a href="#828-统计子串中的唯一字符" class="headerlink" title="828.统计子串中的唯一字符"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string/">828.统计子串中的唯一字符</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>定义了一个函数countUniqueChars(s) 来统计字符串 s 中的唯一字符，并返回唯一字符的个数</p>
-<p>例如：s = “LEETCODE” ，则其中 “L”, “T”,”C”,”O”,”D” 都是唯一字符，因为它们只出现一次，所以 countUniqueChars(s) = 5 。</p>
-<p>本题将会给你一个字符串s，我们需要返回countUniqueChars(t) 的总和，其中t是s的子字符串。输入用例保证返回值为32位整数</p>
-<p>注意，某些子字符串可能是重复的，但统计时也必须算上这些重复的子字符串（也就是说必须统计 s 的所有子字符串中的唯一字符）</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>对于每个字符，往前找和他相同的字符的下标left，往后找和他相同的字符的下标right</p>
+        <h1 id="统计子串中的唯一字符"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string/">828.统计子串中的唯一字符</a></h1>
+<h2 id="题目描述">题目描述</h2>
+<p>定义了一个函数countUniqueChars(s) 来统计字符串 s
+中的唯一字符，并返回唯一字符的个数</p>
+<p>例如：s = "LEETCODE" ，则其中 "L", "T","C","O","D"
+都是唯一字符，因为它们只出现一次，所以 countUniqueChars(s) = 5 。</p>
+<p>本题将会给你一个字符串s，我们需要返回countUniqueChars(t)
+的总和，其中t是s的子字符串。输入用例保证返回值为32位整数</p>
+<p>注意，某些子字符串可能是重复的，但统计时也必须算上这些重复的子字符串（也就是说必须统计
+s 的所有子字符串中的唯一字符）</p>
+<h2 id="解题思路">解题思路</h2>
+<p>对于每个字符，往前找和他相同的字符的下标left，往后找和他相同的字符的下标right</p>
 <p>不用管其他在子字符串中是否有其他字符相同，因为单独计算这个字符的贡献</p>
 <p>如TLEETLEET，对T而言，中间的E会在其下标处计算，与T的计算无关</p>
 <p>单独计算每个字符的贡献，累加到ans中<code>ans += (i - left) * (right - i);</code></p>
@@ -438,7 +445,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#828-%E7%BB%9F%E8%AE%A1%E5%AD%90%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">828.统计子串中的唯一字符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%90%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">828.统计子串中的唯一字符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="741.摘樱桃题目描述一个的网格(grid) 代表了一块樱桃地，每个格子由以下三种数字的一种来表示： 0表示这个格子是空的，所以你可以穿过它  1表示这个格子里装着一个樱桃，你可以摘到樱桃然后穿过它  -1表示这个格子里有荆棘，挡着你的路  你的任务是在遵守下列规则的情况下，尽可能的摘到最多樱桃： 从位置(0,0)出发，最后到达(N-1,N-1)，只能向下或向右走，并且只能穿越有效的格子（即只可以">
+  <meta name="description" content="741.摘樱桃 题目描述 一个的网格(grid) 代表了一块樱桃地，每个格子由以下三种数字的一种来表示： 0表示这个格子是空的，所以你可以穿过它  1表示这个格子里装着一个樱桃，你可以摘到樱桃然后穿过它  -1表示这个格子里有荆棘，挡着你的路 你的任务是在遵守下列规则的情况下，尽可能的摘到最多樱桃： 从位置(0,0)出发，最后到达(N-1,N-1)，只能向下或向右走，并且只能穿越">
 <meta property="og:type" content="article">
 <meta property="og:title" content="741.摘樱桃">
 <meta property="og:url" content="http://example.com/2022/07/11/LeetCode%E5%88%B7%E9%A2%98/741.%E6%91%98%E6%A8%B1%E6%A1%83/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="741.摘樱桃题目描述一个的网格(grid) 代表了一块樱桃地，每个格子由以下三种数字的一种来表示： 0表示这个格子是空的，所以你可以穿过它  1表示这个格子里装着一个樱桃，你可以摘到樱桃然后穿过它  -1表示这个格子里有荆棘，挡着你的路  你的任务是在遵守下列规则的情况下，尽可能的摘到最多樱桃： 从位置(0,0)出发，最后到达(N-1,N-1)，只能向下或向右走，并且只能穿越有效的格子（即只可以">
+<meta property="og:description" content="741.摘樱桃 题目描述 一个的网格(grid) 代表了一块樱桃地，每个格子由以下三种数字的一种来表示： 0表示这个格子是空的，所以你可以穿过它  1表示这个格子里装着一个樱桃，你可以摘到樱桃然后穿过它  -1表示这个格子里有荆棘，挡着你的路 你的任务是在遵守下列规则的情况下，尽可能的摘到最多樱桃： 从位置(0,0)出发，最后到达(N-1,N-1)，只能向下或向右走，并且只能穿越">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-11T04:49:27.000Z">
 <meta property="article:modified_time" content="2022-09-18T07:22:02.013Z">
@@ -349,21 +349,24 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="741-摘樱桃"><a href="#741-摘樱桃" class="headerlink" title="741.摘樱桃"></a>741.摘樱桃</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="6.784ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 2998.4 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mo" transform="translate(1110.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(2110.4,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container>的网格(grid) 代表了一块樱桃地，每个格子由以下三种数字的一种来表示：</p>
+        <h1 id="摘樱桃">741.摘樱桃</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="6.784ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 2998.4 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mo" transform="translate(1110.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(2110.4,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container></span>的网格(grid) 代表了一块樱桃地，每个格子由以下三种数字的一种来表示：</p>
 <pre><code>0表示这个格子是空的，所以你可以穿过它
 
 1表示这个格子里装着一个樱桃，你可以摘到樱桃然后穿过它
 
--1表示这个格子里有荆棘，挡着你的路
-</code></pre>
+-1表示这个格子里有荆棘，挡着你的路</code></pre>
 <p>你的任务是在遵守下列规则的情况下，尽可能的摘到最多樱桃：</p>
 <p>从位置(0,0)出发，最后到达(N-1,N-1)，只能向下或向右走，并且只能穿越有效的格子（即只可以穿过值为0或者1的格子）</p>
 <p>当到达(N-1,N-1)后，你要继续走，直到返回到(0,0)，只能向上或向左走，并且只能穿越有效的格子</p>
 <p>当你经过一个格子且这个格子包含一个樱桃时，你将摘到樱桃并且这个格子会变成空的（值变为0）</p>
 <p>如果在(0,0)和(N-1,N-1)之间不存在一条可经过的路径，则没有任何一个樱桃能被摘到</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>一个人从(0,0)走到(n-1,n-1),再从(n-1,n-1)走到(0,0)，相当于两个人同时从(0,0)走到(n-1,n-1)，每个人都可以向右或者向下</p>
+<h2 id="解题思路">解题思路</h2>
+<p>一个人从(0,0)走到(n-1,n-1),再从(n-1,n-1)走到(0,0)，相当于两个人同时从(0,0)走到(n-1,n-1)，每个人都可以向右或者向下</p>
 <p>设两个人的坐标为A(x1,y1),B(x2,y2),则状态可表示为dp[x1][x2][y1][y2]，表示当前状态下的最大樱桃数量</p>
-<p>若当前走了k次（k的取值范围是[0,2n-1),即从(0,0)走到(n-1,n-1)需要走2n-1步），则有x1+y1 = x2+y2 = k，所以y1、y2都和k有关系，则上述状态可简化为dp[x1][x2][k]</p>
+<p>若当前走了k次（k的取值范围是[0,2n-1),即从(0,0)走到(n-1,n-1)需要走2n-1步），则有x1+y1
+= x2+y2 = k，所以y1、y2都和k有关系，则上述状态可简化为dp[x1][x2][k]</p>
 <p>为了方便，让A永远在B上方走，即x1&lt;=x2</p>
 <p>分四种情况，A向下向右*B向下向右</p>
 <p>同时应该判断下如果AB在同一个位置则只算他们摘到了一个樱桃</p>
@@ -447,7 +450,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#741-%E6%91%98%E6%A8%B1%E6%A1%83"><span class="nav-number">1.</span> <span class="nav-text">741.摘樱桃</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E6%A8%B1%E6%A1%83"><span class="nav-number">1.</span> <span class="nav-text">741.摘樱桃</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

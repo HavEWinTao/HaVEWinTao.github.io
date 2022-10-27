@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="5253.找到指定长度的回文数题目描述长度为intLength的回文数，求第queries个 解题思路找回文数的规律，以长度为5为例 100011010110201…1090111011…1111111211…1191112021…99999 前半部分是从100-999，这样就可以找到回文数的个数 1234if ((long) q &gt; (long) 9 * Math.pow(10, (int">
+  <meta name="description" content="5253.找到指定长度的回文数 题目描述 长度为intLength的回文数，求第queries个 解题思路 找回文数的规律，以长度为5为例 10001 10101 10201 ... 10901 11011 ... 11111 11211 ... 11911 12021 ... 99999 前半部分是从100-999，这样就可以找到回文数的个数 1234if ((long) q &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5253.找到指定长度的回文数">
 <meta property="og:url" content="http://example.com/2022/03/27/LeetCode%E5%88%B7%E9%A2%98/5253.%E6%89%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E9%95%BF%E5%BA%A6%E7%9A%84%E5%9B%9E%E6%96%87%E6%95%B0/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="5253.找到指定长度的回文数题目描述长度为intLength的回文数，求第queries个 解题思路找回文数的规律，以长度为5为例 100011010110201…1090111011…1111111211…1191112021…99999 前半部分是从100-999，这样就可以找到回文数的个数 1234if ((long) q &gt; (long) 9 * Math.pow(10, (int">
+<meta property="og:description" content="5253.找到指定长度的回文数 题目描述 长度为intLength的回文数，求第queries个 解题思路 找回文数的规律，以长度为5为例 10001 10101 10201 ... 10901 11011 ... 11111 11211 ... 11911 12021 ... 99999 前半部分是从100-999，这样就可以找到回文数的个数 1234if ((long) q &amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-27T07:00:27.000Z">
 <meta property="article:modified_time" content="2022-09-18T07:22:02.011Z">
@@ -349,12 +349,15 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="5253-找到指定长度的回文数"><a href="#5253-找到指定长度的回文数" class="headerlink" title="5253.找到指定长度的回文数"></a>5253.找到指定长度的回文数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>长度为intLength的回文数，求第queries个</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>找回文数的规律，以长度为5为例</p>
-<p>10001<br>10101<br>10201<br>…<br>10901<br>11011<br>…<br>11111<br>11211<br>…<br>11911<br>12021<br>…<br>99999</p>
+        <h1 id="找到指定长度的回文数">5253.找到指定长度的回文数</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>长度为intLength的回文数，求第queries个</p>
+<h2 id="解题思路">解题思路</h2>
+<p>找回文数的规律，以长度为5为例</p>
+<p>10001 10101 10201 ... 10901 11011 ... 11111 11211 ... 11911 12021 ...
+99999</p>
 <p>前半部分是从100-999，这样就可以找到回文数的个数</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((<span class="type">long</span>) q &gt; (<span class="type">long</span>) <span class="number">9</span> * Math.pow(<span class="number">10</span>, (intLength - <span class="number">1</span>) / <span class="number">2</span>)) {</span><br><span class="line">    ans[i] = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
 <p>然后通过StringBuilder的reverse和substring对他进行翻转拼接</p>
 
     </div>
@@ -436,7 +439,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#5253-%E6%89%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E9%95%BF%E5%BA%A6%E7%9A%84%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">5253.找到指定长度的回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E9%95%BF%E5%BA%A6%E7%9A%84%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">5253.找到指定长度的回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

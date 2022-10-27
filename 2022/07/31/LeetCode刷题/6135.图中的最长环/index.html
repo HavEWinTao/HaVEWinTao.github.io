@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="6135.图中的最长环题目描述一个n个节点的有向图，节点编号为0到n-1，其中每个节点至多有一条出边 图用一个大小为n下标从0开始的数组edges表示，节点i到节点edges[i]之间有一条有向边。如果节点i没有出边，那么edges[i] &#x3D;&#x3D; -1 返回图中的最长环，如果没有任何环，返回-1 一个环指的是起点和终点是同一个节点的路径 解题思路因为题中每个节点至多有一条出边，这个题就简单多了 一个">
+  <meta name="description" content="6135.图中的最长环 题目描述 一个n个节点的有向图，节点编号为0到n-1，其中每个节点至多有一条出边 图用一个大小为n下标从0开始的数组edges表示，节点i到节点edges[i]之间有一条有向边。如果节点i没有出边，那么edges[i] &#x3D;&#x3D; -1 返回图中的最长环，如果没有任何环，返回-1 一个环指的是起点和终点是同一个节点的路径 解题思路 因为题中每个节点至多有一条出边，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6135.图中的最长环">
 <meta property="og:url" content="http://example.com/2022/07/31/LeetCode%E5%88%B7%E9%A2%98/6135.%E5%9B%BE%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E7%8E%AF/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="6135.图中的最长环题目描述一个n个节点的有向图，节点编号为0到n-1，其中每个节点至多有一条出边 图用一个大小为n下标从0开始的数组edges表示，节点i到节点edges[i]之间有一条有向边。如果节点i没有出边，那么edges[i] &#x3D;&#x3D; -1 返回图中的最长环，如果没有任何环，返回-1 一个环指的是起点和终点是同一个节点的路径 解题思路因为题中每个节点至多有一条出边，这个题就简单多了 一个">
+<meta property="og:description" content="6135.图中的最长环 题目描述 一个n个节点的有向图，节点编号为0到n-1，其中每个节点至多有一条出边 图用一个大小为n下标从0开始的数组edges表示，节点i到节点edges[i]之间有一条有向边。如果节点i没有出边，那么edges[i] &#x3D;&#x3D; -1 返回图中的最长环，如果没有任何环，返回-1 一个环指的是起点和终点是同一个节点的路径 解题思路 因为题中每个节点至多有一条出边，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-31T07:59:27.000Z">
 <meta property="article:modified_time" content="2022-09-18T07:22:02.012Z">
@@ -350,17 +350,20 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="6135-图中的最长环"><a href="#6135-图中的最长环" class="headerlink" title="6135.图中的最长环"></a>6135.图中的最长环</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个n个节点的有向图，节点编号为0到n-1，其中每个节点<strong>至多</strong>有一条出边</p>
-<p>图用一个大小为n下标从0开始的数组edges表示，节点i到节点edges[i]之间有一条有向边。如果节点i没有出边，那么edges[i] == -1</p>
+        <h1 id="图中的最长环">6135.图中的最长环</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个n个节点的有向图，节点编号为0到n-1，其中每个节点<strong>至多</strong>有一条出边</p>
+<p>图用一个大小为n下标从0开始的数组edges表示，节点i到节点edges[i]之间有一条有向边。如果节点i没有出边，那么edges[i]
+== -1</p>
 <p>返回图中的最长环，如果没有任何环，返回-1</p>
 <p>一个环指的是起点和终点是同一个节点的路径</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>因为题中每个节点至多有一条出边，这个题就简单多了</p>
+<h2 id="解题思路">解题思路</h2>
+<p>因为题中每个节点至多有一条出边，这个题就简单多了</p>
 <p>一个visit数组，size是n</p>
 <p>如果一个结点没有被visit就遍历这个结点</p>
 <pre><code>在遍历结点的过程中将这个路径上的结点标记visit，遇到-1或遇到环的时候停止
 
-如果是环就返回环的长度，不然就返回-1
-</code></pre>
+如果是环就返回环的长度，不然就返回-1</code></pre>
 <p>取最大的环的长度</p>
 <p>只在外层循环中做visit判断会超时，在查找路径时如果遇到已经visit的直接返回-1可以防止超时</p>
 
@@ -446,7 +449,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#6135-%E5%9B%BE%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E7%8E%AF"><span class="nav-number">1.</span> <span class="nav-text">6135.图中的最长环</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E4%B8%AD%E7%9A%84%E6%9C%80%E9%95%BF%E7%8E%AF"><span class="nav-number">1.</span> <span class="nav-text">6135.图中的最长环</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

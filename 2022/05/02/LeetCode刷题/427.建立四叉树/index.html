@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="427.建立四叉树题目描述最开始这题没读明白，看了给的用例才明白 一个正方形矩阵他的值不是1就是0，然后从中心的位置将其分为四部分，规则如下： 如果某一部分的值相等，即全为1或全为0，为这个区域设置节点，该节点为叶子结点(isLeaf&#x3D;true)，该节点的val设置为该区域的值 如果该部分值不相等，就再将该区域以中心位置分为4个部分，isLeaf设为false，val值随意 当区域被划分划分，到最">
+  <meta name="description" content="427.建立四叉树 题目描述 最开始这题没读明白，看了给的用例才明白 一个正方形矩阵他的值不是1就是0，然后从中心的位置将其分为四部分，规则如下： 如果某一部分的值相等，即全为1或全为0，为这个区域设置节点，该节点为叶子结点(isLeaf&#x3D;true)，该节点的val设置为该区域的值 如果该部分值不相等，就再将该区域以中心位置分为4个部分，isLeaf设为false，val值随意 当区域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="427.建立四叉树">
 <meta property="og:url" content="http://example.com/2022/05/02/LeetCode%E5%88%B7%E9%A2%98/427.%E5%BB%BA%E7%AB%8B%E5%9B%9B%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="427.建立四叉树题目描述最开始这题没读明白，看了给的用例才明白 一个正方形矩阵他的值不是1就是0，然后从中心的位置将其分为四部分，规则如下： 如果某一部分的值相等，即全为1或全为0，为这个区域设置节点，该节点为叶子结点(isLeaf&#x3D;true)，该节点的val设置为该区域的值 如果该部分值不相等，就再将该区域以中心位置分为4个部分，isLeaf设为false，val值随意 当区域被划分划分，到最">
+<meta property="og:description" content="427.建立四叉树 题目描述 最开始这题没读明白，看了给的用例才明白 一个正方形矩阵他的值不是1就是0，然后从中心的位置将其分为四部分，规则如下： 如果某一部分的值相等，即全为1或全为0，为这个区域设置节点，该节点为叶子结点(isLeaf&#x3D;true)，该节点的val设置为该区域的值 如果该部分值不相等，就再将该区域以中心位置分为4个部分，isLeaf设为false，val值随意 当区域">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-02T03:15:27.000Z">
 <meta property="article:modified_time" content="2022-09-18T07:22:02.010Z">
@@ -351,12 +351,15 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="427-建立四叉树"><a href="#427-建立四叉树" class="headerlink" title="427.建立四叉树"></a>427.建立四叉树</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>最开始这题没读明白，看了给的用例才明白</p>
+        <h1 id="建立四叉树">427.建立四叉树</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>最开始这题没读明白，看了给的用例才明白</p>
 <p>一个正方形矩阵他的值不是1就是0，然后从中心的位置将其分为四部分，规则如下：</p>
 <p>如果某一部分的值相等，即全为1或全为0，为这个区域设置节点，该节点为叶子结点(isLeaf=true)，该节点的val设置为该区域的值</p>
 <p>如果该部分值不相等，就再将该区域以中心位置分为4个部分，isLeaf设为false，val值随意</p>
-<p>当区域被划分划分，到最后会是<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="5.028ex" height="1.507ex" role="img" focusable="false" viewBox="0 -666 2222.4 666"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container>的方格，就一定是叶子结点了，到此为止一颗树就建完了</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>使用的数据结构是多叉树</p>
+<p>当区域被划分划分，到最后会是<span class="math inline"><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="5.028ex" height="1.507ex" role="img" focusable="false" viewBox="0 -666 2222.4 666"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container></span>的方格，就一定是叶子结点了，到此为止一颗树就建完了</p>
+<h2 id="解题思路">解题思路</h2>
+<p>使用的数据结构是多叉树</p>
 <p>DFS递归建树即可，用(a,b,c,d)标记左上点和右下点</p>
 <p>遍历每个小区域判断该区域值是否相等</p>
 <p>返回root</p>
@@ -444,7 +447,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#427-%E5%BB%BA%E7%AB%8B%E5%9B%9B%E5%8F%89%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">427.建立四叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%9B%9B%E5%8F%89%E6%A0%91"><span class="nav-number">1.</span> <span class="nav-text">427.建立四叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

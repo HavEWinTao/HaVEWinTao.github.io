@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="32.最长有效括号我和答案的思路都是用栈，并且分段 但是我分的真是太狗屎了，考虑记录长度，但是无法解决一些未匹配问题，当(左括号多时就不对了 答案用栈记录了最后一个未匹配的)的下标 对于遇到的每个‘(’，我们将它的下标放入栈中 对于遇到的每个‘)’，我们先弹出栈顶元素表示匹配了当前右括号： 如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的「最后一个没有被匹">
+  <meta name="description" content="32.最长有效括号 我和答案的思路都是用栈，并且分段 但是我分的真是太狗屎了，考虑记录长度，但是无法解决一些未匹配问题，当(左括号多时就不对了 答案用栈记录了最后一个未匹配的)的下标 对于遇到的每个‘(’，我们将它的下标放入栈中 对于遇到的每个‘)’，我们先弹出栈顶元素表示匹配了当前右括号： 如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的「最">
 <meta property="og:type" content="article">
 <meta property="og:title" content="32.最长有效括号">
 <meta property="og:url" content="http://example.com/2021/11/08/LeetCode%E5%88%B7%E9%A2%98/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="32.最长有效括号我和答案的思路都是用栈，并且分段 但是我分的真是太狗屎了，考虑记录长度，但是无法解决一些未匹配问题，当(左括号多时就不对了 答案用栈记录了最后一个未匹配的)的下标 对于遇到的每个‘(’，我们将它的下标放入栈中 对于遇到的每个‘)’，我们先弹出栈顶元素表示匹配了当前右括号： 如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的「最后一个没有被匹">
+<meta property="og:description" content="32.最长有效括号 我和答案的思路都是用栈，并且分段 但是我分的真是太狗屎了，考虑记录长度，但是无法解决一些未匹配问题，当(左括号多时就不对了 答案用栈记录了最后一个未匹配的)的下标 对于遇到的每个‘(’，我们将它的下标放入栈中 对于遇到的每个‘)’，我们先弹出栈顶元素表示匹配了当前右括号： 如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的「最">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-08T07:50:27.000Z">
 <meta property="article:modified_time" content="2022-09-18T07:22:02.010Z">
@@ -349,14 +349,16 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="32-最长有效括号"><a href="#32-最长有效括号" class="headerlink" title="32.最长有效括号"></a>32.最长有效括号</h1><p>我和答案的思路都是用栈，并且分段</p>
+        <h1 id="最长有效括号">32.最长有效括号</h1>
+<p>我和答案的思路都是用栈，并且分段</p>
 <p>但是我分的真是太狗屎了，考虑记录长度，但是无法解决一些未匹配问题，当(左括号多时就不对了</p>
 <p>答案用栈记录了最后一个未匹配的)的下标</p>
 <p>对于遇到的每个‘(’，我们将它的下标放入栈中</p>
 <p>对于遇到的每个‘)’，我们先弹出栈顶元素表示匹配了当前右括号：</p>
 <p>如果栈为空，说明当前的右括号为没有被匹配的右括号，我们将其下标放入栈中来更新我们之前提到的「最后一个没有被匹配的右括号的下标」</p>
 <p>如果栈不为空，当前右括号的下标减去栈顶元素即为「以该右括号为结尾的最长有效括号的长度」</p>
-<p>如果一开始栈为空，第一个字符为左括号的时候我们会将其放入栈中，这样就不满足提及的「最后一个没有被匹配的右括号的下标」，为了保持统一，我们在一开始的时候往栈中放入一个值为 -1−1 的元素。</p>
+<p>如果一开始栈为空，第一个字符为左括号的时候我们会将其放入栈中，这样就不满足提及的「最后一个没有被匹配的右括号的下标」，为了保持统一，我们在一开始的时候往栈中放入一个值为
+-1−1 的元素。</p>
 
     </div>
 
@@ -437,7 +439,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#32-%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">32.最长有效括号</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">32.最长有效括号</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

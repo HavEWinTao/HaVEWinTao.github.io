@@ -345,10 +345,12 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="338-比特位计数"><a href="#338-比特位计数" class="headerlink" title="338.比特位计数"></a>338.比特位计数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给一个整数n,求出0~n之间的每个数的二进制表示有多少个1</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>一种迭代的思想</p>
+          <h1 id="比特位计数">338.比特位计数</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给一个整数n,求出0~n之间的每个数的二进制表示有多少个1</p>
+<h2 id="解题思路">解题思路</h2>
+<p>一种迭代的思想</p>
 <img src="/2022/03/22/LeetCode%E5%88%B7%E9%A2%98/338.%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/338.bits.png" class="" title="迭代过程">
-
 <p>从i=1到n进行遍历，这样的话找到最高位，然后之后就是(i-最高位表示的数)的二进制位数再+1就是i的二进制表示中1的数量</p>
 <p>求最高位:根据规律可以看出，i和i-1求与(&amp;)的值是0的时候更新最高位，如1000,0111</p>
 
@@ -424,8 +426,11 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="169-多数元素"><a href="#169-多数元素" class="headerlink" title="169.多数元素"></a>169.多数元素</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个大小为n的数组，一个元素出现了n/2次以上，找到这个数</p>
-<h2 id="解题思路-Boyer-Moore投票算法"><a href="#解题思路-Boyer-Moore投票算法" class="headerlink" title="解题思路(Boyer-Moore投票算法)"></a>解题思路(Boyer-Moore投票算法)</h2><p>因为这个多数元素在数组中出现的次数大于n/2,n一定是出现次数最多并且多于一半的.</p>
+          <h1 id="多数元素">169.多数元素</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个大小为n的数组，一个元素出现了n/2次以上，找到这个数</p>
+<h2 id="解题思路boyer-moore投票算法">解题思路(Boyer-Moore投票算法)</h2>
+<p>因为这个多数元素在数组中出现的次数大于n/2,n一定是出现次数最多并且多于一半的.</p>
 <p>多于一半才可以用这种算法，普通的众数不可以。</p>
 <p>官方代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">majorityElement</span><span class="params">(<span class="type">int</span>[] nums)</span> {</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">candidate</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> num : nums) {</span><br><span class="line">        <span class="keyword">if</span> (count == <span class="number">0</span>) {</span><br><span class="line">            candidate = num;</span><br><span class="line">        }</span><br><span class="line">        count += (num == candidate) ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> candidate;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
@@ -502,8 +507,11 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="141-环形链表"><a href="#141-环形链表" class="headerlink" title="141.环形链表"></a>141.环形链表</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个链表，判断链表中是否有环</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>1.哈希表:将已经出现的结点放入哈希表中，判断是否出现过</p>
+          <h1 id="环形链表">141.环形链表</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定一个链表，判断链表中是否有环</p>
+<h2 id="解题思路">解题思路</h2>
+<p>1.哈希表:将已经出现的结点放入哈希表中，判断是否出现过</p>
 <p>2.取巧，因为题目中说最大结点数是10000，所以执行10000次，如果结点还没等于null就说明存在换</p>
 <p>3.方法2的通用办法——快慢指针</p>
 <p>一个指针取next另一个指针取next.next，然后遍历，如果存在环一定会存在量指针相同的情况，不然就会遍历到尾部判断出不存在环</p>
@@ -580,8 +588,11 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="160-相交链表"><a href="#160-相交链表" class="headerlink" title="160.相交链表"></a>160.相交链表</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个链表，判断两个链表是否相交</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>1.用一个set保存结点，再判断集合中是否存在结点来判断相交</p>
+          <h1 id="相交链表">160.相交链表</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>给定两个链表，判断两个链表是否相交</p>
+<h2 id="解题思路">解题思路</h2>
+<p>1.用一个set保存结点，再判断集合中是否存在结点来判断相交</p>
 <p>2.双指针</p>
 <p>一个指针pa指向链表A，另一个指针pb指向链表B，假设链表A比链表B长</p>
 <p>pb已经遍历完时pa还没有遍历完，令pb指向链表A的头部，然后继续遍历</p>
@@ -659,29 +670,29 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Hexo的使用"><a href="#Hexo的使用" class="headerlink" title="Hexo的使用"></a>Hexo的使用</h1><h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>对配置文件进行修改</p>
+          <h1 id="hexo的使用">Hexo的使用</h1>
+<h2 id="插入图片">插入图片</h2>
+<p>对配置文件进行修改</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
 <p>这样新建.md时会生成个文件夹，文件夹里放图片就行了</p>
 <p><strong>解决博客首页图片不显示的问题</strong>：使用<code>{% asset_img example.jpg example %}</code>来插入图片</p>
-<h2 id="支持数学公式"><a href="#支持数学公式" class="headerlink" title="支持数学公式"></a>支持数学公式</h2><p><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-filter-mathjax">教程</a></p>
+<h2 id="支持数学公式">支持数学公式</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-filter-mathjax">教程</a></p>
 <p>Hexo的服务器端MathJax渲染器插件，不依赖任何前端脚本。</p>
 <p><code>npm install hexo-filter-mathjax</code></p>
 <p>对配置文件进行修改</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">   <span class="attr">tags :</span> <span class="string">none</span> <span class="comment"># or 'ams' or 'all' </span></span><br><span class="line">  <span class="attr">single_dollars :</span> <span class="literal">true</span> <span class="comment">#启用单个美元符号作为内联数学分隔符</span></span><br><span class="line">  <span class="attr">cjk_width :</span> <span class="number">0.9</span>  <span class="comment">#相对 CJK 字符宽度</span></span><br><span class="line">  <span class="attr">normal_width :</span> <span class="number">0.6</span>  <span class="comment">#相对正常（等宽）宽度</span></span><br><span class="line">  <span class="attr">append_css :</span> <span class="literal">true</span> <span class="comment">#向 MathJax 渲染的页面添加 CSS </span></span><br><span class="line">  <span class="attr">every_page :</span> <span class="literal">false</span> <span class="comment">#</span></span><br><span class="line">  <span class="string">如果为</span> <span class="literal">true</span><span class="string">，则无论</span> <span class="string">Front-matter</span> <span class="string">extension_options中的</span> <span class="string">`mathjax`</span> <span class="string">设置如何，每个页面都将由</span> <span class="string">MathJax</span> <span class="string">渲染：{}</span></span><br><span class="line">    <span class="comment">#你可以把你的扩展选项放在这里</span></span><br><span class="line">    <span class="comment">#更多细节参见 http://docs.mathjax.org/en/latest/options/input/tex.html#tex-extension-options</span></span><br></pre></td></tr></table></figure>
-
 <p>在每个markdown的开始位置设置</p>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">mathjax: true</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-
 <p>安装pandoc</p>
 <p><code>npm install hexo-renderer-pandoc --save</code></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pandoc:</span></span><br><span class="line">  <span class="attr">pandoc_path:</span> <span class="string">C:/Program</span> <span class="string">Files/Pandoc/pandoc.exe</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="插入链接-相对路径"><a href="#插入链接-相对路径" class="headerlink" title="插入链接(相对路径)"></a>插入链接(相对路径)</h2><p>如<a href="/2022/03/19/LeetCode%E5%88%B7%E9%A2%98/386.%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E6%95%B0/index.html">386.字典序排数</a>,相对路径以public为起始位置</p>
-<h2 id="分类和标签的使用"><a href="#分类和标签的使用" class="headerlink" title="分类和标签的使用"></a>分类和标签的使用</h2><p>在<code>source</code>文件夹下创建<code>categories</code>和<code>tags</code>文件夹</p>
+<h2 id="插入链接相对路径">插入链接(相对路径)</h2>
+<p>如<a href="/2022/03/19/LeetCode刷题/386.字典序排数/index.html">386.字典序排数</a>,相对路径以public为起始位置</p>
+<h2 id="分类和标签的使用">分类和标签的使用</h2>
+<p>在<code>source</code>文件夹下创建<code>categories</code>和<code>tags</code>文件夹</p>
 <p>在下面创建<code>index.md</code>，插入下面的front-formatter就可以自动生成分类和标签了</p>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2022-03-26 14:39:45</span><br><span class="line"><span class="section">type: categories</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-
 <p>标签是同级的</p>
 <p>分类可以通过[category1,category2]来表示层级</p>
 
@@ -751,9 +762,11 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="283-移动零"><a href="#283-移动零" class="headerlink" title="283.移动零"></a>283.移动零</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个数组nums,将数组中所有的元素0移到末尾，并且保持其他元素的相对位置不变。</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><img src="/2022/03/21/LeetCode%E5%88%B7%E9%A2%98/283.%E7%A7%BB%E5%8A%A8%E9%9B%B6/283.process.gif" class="" title="示意图">
-
+          <h1 id="移动零">283.移动零</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个数组nums,将数组中所有的元素0移到末尾，并且保持其他元素的相对位置不变。</p>
+<h2 id="解题思路">解题思路</h2>
+<img src="/2022/03/21/LeetCode%E5%88%B7%E9%A2%98/283.%E7%A7%BB%E5%8A%A8%E9%9B%B6/283.process.gif" class="" title="示意图">
 <p>用一个right标记第一个为0的位置，然后从right遍历整个数组，如果当前数组值不是0就将该值覆盖right位置，然后right++,最后将right及其后面的数组都赋值为0</p>
 
       
@@ -822,10 +835,13 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="121-买卖股票的最佳时期"><a href="#121-买卖股票的最佳时期" class="headerlink" title="121.买卖股票的最佳时期"></a>121.买卖股票的最佳时期</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个prices数组,prices[i]表示第i天的价格,在某一天买入，并且在未来的某个日子卖出，求最大利润，如果不能获得利润返回0;</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>用一个minPrice标记到目前为止的最低价格，用ans表示当前能获得的最大利润。</p>
+          <h1 id="买卖股票的最佳时期">121.买卖股票的最佳时期</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个prices数组,prices[i]表示第i天的价格,在某一天买入，并且在未来的某个日子卖出，求最大利润，如果不能获得利润返回0;</p>
+<h2 id="解题思路">解题思路</h2>
+<p>用一个minPrice标记到目前为止的最低价格，用ans表示当前能获得的最大利润。</p>
 <p>遍历prices如果price[i]比minPrice小，更新minPrice,不然判断当前能获得的利润(price-minPrice)如果比ans大，就更新ans</p>
-<p>2…11…1…8这种情况前面的已经记下来了9，后面虽然minPrice更新了，但是利润不会大过9</p>
+<p>2...11...1...8这种情况前面的已经记下来了9，后面虽然minPrice更新了，但是利润不会大过9</p>
 
       
     </div>
@@ -893,8 +909,11 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="155-最小栈"><a href="#155-最小栈" class="headerlink" title="155.最小栈"></a>155.最小栈</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>设计一个栈，能完成栈的常用操作，同时也能返回栈中的最小元素</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>正常可能会想到这是一个最小堆，但是最小堆的插入和删除都会进行额外的排序</p>
+          <h1 id="最小栈">155.最小栈</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>设计一个栈，能完成栈的常用操作，同时也能返回栈中的最小元素</p>
+<h2 id="解题思路">解题思路</h2>
+<p>正常可能会想到这是一个最小堆，但是最小堆的插入和删除都会进行额外的排序</p>
 <p>因为栈的单侧进出的特点，使用额外的O(n)的空间来表示当前栈中最小的元素</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(<span class="type">int</span> val)</span> {</span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>) {</span><br><span class="line">        data[size] = val;</span><br><span class="line">        min[size] = val;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        data[size] = val;</span><br><span class="line">        min[size] = Math.min(val, min[size - <span class="number">1</span>);</span><br><span class="line">    }</span><br><span class="line">    size++;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
@@ -970,8 +989,11 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101.对称二叉树"></a>101.对称二叉树</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>判断一个二叉树是否轴对称</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>1.将二叉树序列化，存到一个数组中，再分别遍历二叉树的每一层，空结点的值用-1表示</p>
+          <h1 id="对称二叉树">101.对称二叉树</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>判断一个二叉树是否轴对称</p>
+<h2 id="解题思路">解题思路</h2>
+<p>1.将二叉树序列化，存到一个数组中，再分别遍历二叉树的每一层，空结点的值用-1表示</p>
 <p><strong>不可行</strong>,当二叉树很不规则是浪费空间</p>
 <p>2.双指针,p，q表示当前对称位置，不断的遍历，递归后即可完成判断</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSymmetric</span><span class="params">(TreeNode root)</span> {</span><br><span class="line">    <span class="keyword">return</span> judge(root.left, root.right);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">judge</span><span class="params">(TreeNode p, TreeNode q)</span> {</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">null</span> &amp;&amp; q == <span class="literal">null</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">null</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (q == <span class="literal">null</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (p.val != q.val) {</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> judge(p.left, q.right) &amp;&amp; judge(p.right, q.left);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
@@ -1048,10 +1070,13 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="136-只出现一次的数字"><a href="#136-只出现一次的数字" class="headerlink" title="136.只出现一次的数字"></a>136.只出现一次的数字</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个非空数组，2m+1个数，其中一个数只出现一次，另外m个数出现2次</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.用额外的O(n)的空间</p>
+          <h1 id="只出现一次的数字">136.只出现一次的数字</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>一个非空数组，2m+1个数，其中一个数只出现一次，另外m个数出现2次</p>
+<h2 id="思路">思路</h2>
+<p>1.用额外的O(n)的空间</p>
 <p>2.位运算——<strong>妙啊</strong></p>
-<p>a^a = 0;<br>a^0 = a;</p>
+<p>a^a = 0; a^0 = a;</p>
 <p>所以将整个数组做异或，最后的值就是ans</p>
 
       

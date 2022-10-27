@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="587.安装栅栏题目描述在二维的花园中，有(x,y)一些树，用最短的绳子围起所有的树 找到所有栅栏边界的树的坐标 解题思路人傻了，我是谁，我在哪 将这个凸包分为上凸壳和下凸壳 对x进行从小到大排序，如果x相等则对y进行从小到大排序 用一个栈维护所有的边界点，先从先往后遍历构建上凸壳，再从后往前遍历构建下凸壳 怎么来维护这个栈呢？根据两条边的位置关系来判断 我裂开了，写了两个多小时，发现还是自己写不">
+  <meta name="description" content="587.安装栅栏 题目描述 在二维的花园中，有(x,y)一些树，用最短的绳子围起所有的树 找到所有栅栏边界的树的坐标 解题思路 人傻了，我是谁，我在哪 将这个凸包分为上凸壳和下凸壳 对x进行从小到大排序，如果x相等则对y进行从小到大排序 用一个栈维护所有的边界点，先从先往后遍历构建上凸壳，再从后往前遍历构建下凸壳 怎么来维护这个栈呢？根据两条边的位置关系来判断 我裂开了，写了两">
 <meta property="og:type" content="article">
 <meta property="og:title" content="587.安装栅栏">
 <meta property="og:url" content="http://example.com/2022/04/24/LeetCode%E5%88%B7%E9%A2%98/587.%E5%AE%89%E8%A3%85%E6%A0%85%E6%A0%8F/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="587.安装栅栏题目描述在二维的花园中，有(x,y)一些树，用最短的绳子围起所有的树 找到所有栅栏边界的树的坐标 解题思路人傻了，我是谁，我在哪 将这个凸包分为上凸壳和下凸壳 对x进行从小到大排序，如果x相等则对y进行从小到大排序 用一个栈维护所有的边界点，先从先往后遍历构建上凸壳，再从后往前遍历构建下凸壳 怎么来维护这个栈呢？根据两条边的位置关系来判断 我裂开了，写了两个多小时，发现还是自己写不">
+<meta property="og:description" content="587.安装栅栏 题目描述 在二维的花园中，有(x,y)一些树，用最短的绳子围起所有的树 找到所有栅栏边界的树的坐标 解题思路 人傻了，我是谁，我在哪 将这个凸包分为上凸壳和下凸壳 对x进行从小到大排序，如果x相等则对y进行从小到大排序 用一个栈维护所有的边界点，先从先往后遍历构建上凸壳，再从后往前遍历构建下凸壳 怎么来维护这个栈呢？根据两条边的位置关系来判断 我裂开了，写了两">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-24T05:37:27.000Z">
 <meta property="article:modified_time" content="2022-09-18T07:22:02.011Z">
@@ -350,26 +350,24 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="587-安装栅栏"><a href="#587-安装栅栏" class="headerlink" title="587.安装栅栏"></a>587.安装栅栏</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在二维的花园中，有(x,y)一些树，用最短的绳子围起所有的树</p>
+        <h1 id="安装栅栏">587.安装栅栏</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>在二维的花园中，有(x,y)一些树，用最短的绳子围起所有的树</p>
 <p>找到所有栅栏边界的树的坐标</p>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>人傻了，我是谁，我在哪</p>
+<h2 id="解题思路">解题思路</h2>
+<p>人傻了，我是谁，我在哪</p>
 <p>将这个凸包分为上凸壳和下凸壳</p>
 <p>对x进行从小到大排序，如果x相等则对y进行从小到大排序</p>
 <p>用一个栈维护所有的边界点，先从先往后遍历构建上凸壳，再从后往前遍历构建下凸壳</p>
 <p>怎么来维护这个栈呢？根据两条边的位置关系来判断</p>
 <p>我裂开了，写了两个多小时，发现还是自己写不出来，各种边界情况错误，索性直接用了现成的</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//subtraction(b,a)求的是向量ab  subtraction(c,a)求的是向量ac</span></span><br><span class="line"><span class="type">int</span>[] subtraction(<span class="type">int</span>[] a, <span class="type">int</span>[] b) { <span class="comment">// 向量相减</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]{a[<span class="number">0</span>] - b[<span class="number">0</span>], a[<span class="number">1</span>] - b[<span class="number">1</span>]};</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//叉乘！！！！！</span></span><br><span class="line"><span class="comment">//叉乘公式定义获得到的值k就是k=a.x*b.y-b.x*a.y</span></span><br><span class="line"><span class="comment">//如果k&gt;0时，那么a正旋转到b的角度为&lt;180°，如果k&lt;0，那么a正旋转到b的角度为&gt;180°,如果k=0 那么a，b向量平行。</span></span><br><span class="line"><span class="type">double</span> <span class="title function_">cross</span><span class="params">(<span class="type">int</span>[] a, <span class="type">int</span>[] b)</span> { <span class="comment">// 叉乘</span></span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">0</span>] * b[<span class="number">1</span>] - a[<span class="number">1</span>] * b[<span class="number">0</span>];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过平面两点向量叉乘判断当前ac向量是在顺时针方向还是逆时针方向</span></span><br><span class="line"><span class="type">double</span> <span class="title function_">getArea</span><span class="params">(<span class="type">int</span>[] a, <span class="type">int</span>[] b, <span class="type">int</span>[] c)</span> { <span class="comment">//向量ab转为向量ac过程中扫过的面积</span></span><br><span class="line">    <span class="keyword">return</span> cross(subtraction(b, a), subtraction(c, a));</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
 <p>需要注意的点：</p>
-<ol>
-<li><p>维护栈的元素时不是用的if,而是用的while，需要多次判断当前点和之前点</p>
-</li>
-<li><p>第一部分的上凸壳需要用visit来标注，如果是上凸壳在构建下凸壳时不能删除，也不能加入到下凸壳中</p>
-</li>
-<li><p>构建上凸壳时不能给起点标记visit不然会导致构建下凸壳时无法闭合</p>
-</li>
-<li><p>上凸壳栈元素&gt;2时才能开始维护，栈中元素数量大于上凸壳点数时才维护下凸壳</p>
-</li>
+<ol type="1">
+<li><p>维护栈的元素时不是用的if,而是用的while，需要多次判断当前点和之前点</p></li>
+<li><p>第一部分的上凸壳需要用visit来标注，如果是上凸壳在构建下凸壳时不能删除，也不能加入到下凸壳中</p></li>
+<li><p>构建上凸壳时不能给起点标记visit不然会导致构建下凸壳时无法闭合</p></li>
+<li><p>上凸壳栈元素&gt;2时才能开始维护，栈中元素数量大于上凸壳点数时才维护下凸壳</p></li>
 </ol>
 
     </div>
@@ -454,7 +452,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#587-%E5%AE%89%E8%A3%85%E6%A0%85%E6%A0%8F"><span class="nav-number">1.</span> <span class="nav-text">587.安装栅栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%A0%85%E6%A0%8F"><span class="nav-number">1.</span> <span class="nav-text">587.安装栅栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

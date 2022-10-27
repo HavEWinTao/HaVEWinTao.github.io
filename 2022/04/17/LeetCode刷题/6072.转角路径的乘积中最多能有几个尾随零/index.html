@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="6072.转角路径的乘积中最多能有几个尾随零题目描述解题思路这个题即使先将给定的数组按2和5因子过滤一遍，比如13就变成1，14就变成2这样，然后再去求乘法，也会溢出 转角路径有六种情况：    1. 横着的    2. 竖着的    3. 左到右，然后向上    4. 左到右，然后向下    5. 右到左，然后向上    6. 右到左，然后向下 因为是求尾随0的个数，所以直接将整排整列乘起来就行">
+  <meta name="description" content="6072.转角路径的乘积中最多能有几个尾随零 题目描述 解题思路 这个题即使先将给定的数组按2和5因子过滤一遍，比如13就变成1，14就变成2这样，然后再去求乘法，也会溢出 转角路径有六种情况： 1. 横着的 2. 竖着的 3. 左到右，然后向上 4. 左到右，然后向下 5. 右到左，然后向上 6. 右到左，然后向下 因为是求尾随0的个数，所以直接将整排整列乘起来就行了，因为多乘一个数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6072.转角路径的乘积中最多能有几个尾随零">
 <meta property="og:url" content="http://example.com/2022/04/17/LeetCode%E5%88%B7%E9%A2%98/6072.%E8%BD%AC%E8%A7%92%E8%B7%AF%E5%BE%84%E7%9A%84%E4%B9%98%E7%A7%AF%E4%B8%AD%E6%9C%80%E5%A4%9A%E8%83%BD%E6%9C%89%E5%87%A0%E4%B8%AA%E5%B0%BE%E9%9A%8F%E9%9B%B6/index.html">
 <meta property="og:site_name" content="樊tastic~">
-<meta property="og:description" content="6072.转角路径的乘积中最多能有几个尾随零题目描述解题思路这个题即使先将给定的数组按2和5因子过滤一遍，比如13就变成1，14就变成2这样，然后再去求乘法，也会溢出 转角路径有六种情况：    1. 横着的    2. 竖着的    3. 左到右，然后向上    4. 左到右，然后向下    5. 右到左，然后向上    6. 右到左，然后向下 因为是求尾随0的个数，所以直接将整排整列乘起来就行">
+<meta property="og:description" content="6072.转角路径的乘积中最多能有几个尾随零 题目描述 解题思路 这个题即使先将给定的数组按2和5因子过滤一遍，比如13就变成1，14就变成2这样，然后再去求乘法，也会溢出 转角路径有六种情况： 1. 横着的 2. 竖着的 3. 左到右，然后向上 4. 左到右，然后向下 5. 右到左，然后向上 6. 右到左，然后向下 因为是求尾随0的个数，所以直接将整排整列乘起来就行了，因为多乘一个数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-17T05:18:27.000Z">
 <meta property="article:modified_time" content="2022-09-18T07:22:02.012Z">
@@ -349,10 +349,14 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="6072-转角路径的乘积中最多能有几个尾随零"><a href="#6072-转角路径的乘积中最多能有几个尾随零" class="headerlink" title="6072.转角路径的乘积中最多能有几个尾随零"></a>6072.转角路径的乘积中最多能有几个尾随零</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这个题即使先将给定的数组按2和5因子过滤一遍，比如13就变成1，14就变成2这样，然后再去求乘法，也会溢出</p>
-<p>转角路径有六种情况：<br>    1. 横着的<br>    2. 竖着的<br>    3. 左到右，然后向上<br>    4. 左到右，然后向下<br>    5. 右到左，然后向上<br>    6. 右到左，然后向下</p>
+        <h1 id="转角路径的乘积中最多能有几个尾随零">6072.转角路径的乘积中最多能有几个尾随零</h1>
+<h2 id="题目描述">题目描述</h2>
+<h2 id="解题思路">解题思路</h2>
+<p>这个题即使先将给定的数组按2和5因子过滤一遍，比如13就变成1，14就变成2这样，然后再去求乘法，也会溢出</p>
+<p>转角路径有六种情况： 1. 横着的 2. 竖着的 3. 左到右，然后向上 4.
+左到右，然后向下 5. 右到左，然后向上 6. 右到左，然后向下</p>
 <p>因为是求尾随0的个数，所以直接将整排整列乘起来就行了，因为多乘一个数也不会影响结果</p>
-<p>借鉴<a href="/2022/04/12/LeetCode%E5%88%B7%E9%A2%98/238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E5%A4%96%E6%95%B0%E7%BB%84%E7%9A%84%E4%B9%98%E7%A7%AF/index.html">238.除自身以外数组的乘积</a>的思路</p>
+<p>借鉴<a href="/2022/04/12/LeetCode刷题/238.除自身以外数组的乘积/index.html">238.除自身以外数组的乘积</a>的思路</p>
 <p>需要先构建从左到右，从右到左，从上到下，从下到上的乘积</p>
 <p>对于(i,j),想求他的转角路径，比如左到右然后向上，就是<code>left2right[i][j]*down2up[i][j]*grid[i][j]</code></p>
 <p>然后求最大的尾随零的个数</p>
@@ -361,8 +365,7 @@ mjx-container[display="true"] + br {
 
 ```Math.min(down2up[i][j][1] + left2right[i][j][1] + facter[i][j][1],down2up[i][j][0] + left2right[i][j][0] + facter[i][j][0]);```
 
-然后求6种转角路径的最多尾随0的个数
-</code></pre>
+然后求6种转角路径的最多尾随0的个数</code></pre>
 <p>时间复杂度为O(mn)</p>
 
     </div>
@@ -444,7 +447,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#6072-%E8%BD%AC%E8%A7%92%E8%B7%AF%E5%BE%84%E7%9A%84%E4%B9%98%E7%A7%AF%E4%B8%AD%E6%9C%80%E5%A4%9A%E8%83%BD%E6%9C%89%E5%87%A0%E4%B8%AA%E5%B0%BE%E9%9A%8F%E9%9B%B6"><span class="nav-number">1.</span> <span class="nav-text">6072.转角路径的乘积中最多能有几个尾随零</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E8%A7%92%E8%B7%AF%E5%BE%84%E7%9A%84%E4%B9%98%E7%A7%AF%E4%B8%AD%E6%9C%80%E5%A4%9A%E8%83%BD%E6%9C%89%E5%87%A0%E4%B8%AA%E5%B0%BE%E9%9A%8F%E9%9B%B6"><span class="nav-number">1.</span> <span class="nav-text">6072.转角路径的乘积中最多能有几个尾随零</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
