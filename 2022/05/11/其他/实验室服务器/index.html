@@ -28,7 +28,7 @@
 <meta property="og:description" content="实验室服务器 新建用户 创建用户sudo useradd username -m 设置密码sudo passwd username 切换用户su username 删除用户sudo userdel -r username 新建用户之后只显示$解决办法: 切换到root用户下,执行命令usermod -s &#x2F;bin&#x2F;bash username 切换默认登录路径：使用vim修改&#x2F;etc">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-11T14:44:27.000Z">
-<meta property="article:modified_time" content="2022-10-19T09:10:41.402Z">
+<meta property="article:modified_time" content="2022-12-06T14:23:34.079Z">
 <meta property="article:author" content="樊tastic">
 <meta name="twitter:card" content="summary">
 
@@ -326,7 +326,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-19 17:10:41" itemprop="dateModified" datetime="2022-10-19T17:10:41+08:00">2022-10-19</time>
+                <time title="修改时间：2022-12-06 22:23:34" itemprop="dateModified" datetime="2022-12-06T22:23:34+08:00">2022-12-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -359,6 +359,7 @@ mjx-container[display="true"] + br {
 <p>切换到root用户下,执行命令<code>usermod -s /bin/bash username</code></p>
 <p>切换默认登录路径：使用vim修改/etc/passwd文件</p>
 <p><code>fht:x:1005:1005:fht,,,:/home/fht:/bin/bash</code></p>
+<p>其中的数字不是固定的，是根据之前用户的需要自己生成的，不用改</p>
 <p>修改xshell中无法显示配色：将.bashrc中的<code># force_color_prompt=yes</code>注释去掉，然后source
 ~/.bashrc</p>
 <p>增加root用户权限，编辑<code>/etc/sudoers</code>，在其中加入<code>fht ALL=(All) ALL</code>,因为此文件是只读的，所以需要强制保存<code>:wq!</code></p>
@@ -390,8 +391,8 @@ mjx-container[display="true"] + br {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/05/09/%E5%85%B6%E4%BB%96/jupyter/" rel="prev" title="Jupyter">
-      <i class="fa fa-chevron-left"></i> Jupyter
+    <a href="/2022/05/11/%E5%85%B6%E4%BB%96/flink/" rel="prev" title="实验室服务器">
+      <i class="fa fa-chevron-left"></i> 实验室服务器
     </a></div>
       <div class="post-nav-item">
     <a href="/2022/05/11/LeetCode%E5%88%B7%E9%A2%98/0.%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="next" title="测试用例">
@@ -468,20 +469,20 @@ mjx-container[display="true"] + br {
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">266</span>
+          <span class="site-state-item-count">271</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -508,7 +509,7 @@ mjx-container[display="true"] + br {
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
